@@ -19,7 +19,7 @@ int main() {
 
 	WINDOW** polja = (WINDOW**) malloc(42 * sizeof(WINDOW*)); // free this!
 	
-	int h = yMax / 7, w = xMax / 7, sy = yMax/7, sx = xMax / 7;
+	int h = yMax / 7, w = xMax / 7, sy = yMax / 7, sx = xMax / 7;
 	
 	refresh();
 
