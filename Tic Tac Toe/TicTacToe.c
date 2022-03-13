@@ -55,15 +55,15 @@ int main() {
 
 	int h = ((yMax / 2) / 3), w = ((xMax / 2) / 3);
 
-	WINDOW* win1 = novoOkno(h, w, (yMax / 4) + (0   /2/3) - 0, (xMax / 4) + (0   /2/3)); okna[0] = win1;
-	WINDOW* win2 = novoOkno(h, w, (yMax / 4) + (0   /2/3) - 0, (xMax / 4) + (xMax/2/3)); okna[1] = win2;
-	WINDOW* win3 = novoOkno(h, w, (yMax / 4) + (0   /2/3) - 0, (xMax / 4) + (xMax/1/3)); okna[2] = win3;
-	WINDOW* win4 = novoOkno(h, w, (yMax / 4) + (yMax/2/3) - 0, (xMax / 4) + (0   /2/3)); okna[3] = win4;
-	WINDOW* win5 = novoOkno(h, w, (yMax / 4) + (yMax/2/3) - 0, (xMax / 4) + (xMax/2/3)); okna[4] = win5;
-	WINDOW* win6 = novoOkno(h, w, (yMax / 4) + (yMax/2/3) - 0, (xMax / 4) + (xMax/1/3)); okna[5] = win6;
-	WINDOW* win7 = novoOkno(h, w, (yMax / 4) + (yMax/1/3) - 1, (xMax / 4) + (0   /2/3)); okna[6] = win7;
-	WINDOW* win8 = novoOkno(h, w, (yMax / 4) + (yMax/1/3) - 1, (xMax / 4) + (xMax/2/3)); okna[7] = win8;
-	WINDOW* win9 = novoOkno(h, w, (yMax / 4) + (yMax/1/3) - 1, (xMax / 4) + (xMax/1/3)); okna[8] = win9;
+	okna[0] = novoOkno(h, w, (yMax / 4) + (0   /2/3) - 0, (xMax / 4) + (0   /2/3));
+	okna[1] = novoOkno(h, w, (yMax / 4) + (0   /2/3) - 0, (xMax / 4) + (xMax/2/3));
+	okna[2] = novoOkno(h, w, (yMax / 4) + (0   /2/3) - 0, (xMax / 4) + (xMax/1/3));
+	okna[3] = novoOkno(h, w, (yMax / 4) + (yMax/2/3) - 0, (xMax / 4) + (0   /2/3));
+	okno[4] = novoOkno(h, w, (yMax / 4) + (yMax/2/3) - 0, (xMax / 4) + (xMax/2/3));
+	okna[5] = novoOkno(h, w, (yMax / 4) + (yMax/2/3) - 0, (xMax / 4) + (xMax/1/3));
+	okna[6] = novoOkno(h, w, (yMax / 4) + (yMax/1/3) - 1, (xMax / 4) + (0   /2/3));
+	okna[7] = novoOkno(h, w, (yMax / 4) + (yMax/1/3) - 1, (xMax / 4) + (xMax/2/3));
+	okna[8] = novoOkno(h, w, (yMax / 4) + (yMax/1/3) - 1, (xMax / 4) + (xMax/1/3));
 
 	mvprintw(0, 0, "Enter a number betwen 1 and 9 to enter your simbol: ");
 	refresh();
