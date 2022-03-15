@@ -134,11 +134,7 @@ int main() {
 	int* stolpec6 = (int*)calloc(stVrstic, sizeof(int)); // free this
 	int* stolpec7 = (int*)calloc(stVrstic, sizeof(int)); // free this
 	
-<<<<<<< Updated upstream
-	int h = yMax / 7, w = xMax / 7, sy = yMax / 7, sx = xMax / 7;
-=======
 	int h = yMax / 7, w = xMax / 7;
->>>>>>> Stashed changes
 	
 	refresh();
 
