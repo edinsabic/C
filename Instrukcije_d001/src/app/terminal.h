@@ -8,7 +8,9 @@
 #include "World.h"
 
 void terminal_init();
-int terminal_main();
+
+_Noreturn int terminal_main();
 void terminal_draw_world(World* world);
+void terminal_draw_helperWorld(World* world);
 
 #endif //GITHUB_TERMINAL_H
