@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -rdynamic CMakeFiles/Instrukcije_d001.dir/app/terminal.o CMakeFiles/Instrukcije_d001.dir/domain/Zeton.o CMakeFiles/Instrukcije_d001.dir/domain/World.o CMakeFiles/Instrukcije_d001.dir/main.o  -o Instrukcije_d001  -lcurses -lform 
