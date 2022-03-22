@@ -32,6 +32,7 @@ _Noreturn int terminal_main() {
         clrtoeol();
 
         if (c < 0 || c > 9) {
+            mvaddstr(5, 0, "Just checking if everything works");
             mvaddstr(10, 3, "Your input is invalid, please try again!");
         }
     }
