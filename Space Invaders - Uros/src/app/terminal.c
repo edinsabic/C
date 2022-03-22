@@ -2,10 +2,12 @@
 // Created by urosjarc on 16. 12. 19.
 //
 
-#include <ncurses.h>
-#include <zconf.h>
+#include <curses.h>
+#include <unistd.h>
 #include "terminal.h"
 #include <stdlib.h>
+
+// Nared za testiranje v CLionu
 
 int terminal_main() {
 
