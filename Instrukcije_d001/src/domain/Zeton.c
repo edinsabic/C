@@ -4,12 +4,12 @@
 
 #include "Zeton.h"
 
-Zeton zeton_new(int x, int y, char barva) {
+Zeton zeton_new(int x, int y, char XorO) {
     Zeton this;
 
     this.x = x;
     this.y = y;
-    this.barva = barva;
+    this.XorO = XorO;
     this.aktiven = 1;
 
     return this;

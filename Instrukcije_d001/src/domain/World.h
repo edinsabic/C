@@ -8,6 +8,7 @@
 #include "Zeton.h"
 
 #define WORLD_ST_ZETONOV 9
+#define ST_ZMAGOVALNIH_KOMBINACIJ 7
 
 typedef struct World {
     int height;

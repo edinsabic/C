@@ -8,10 +8,10 @@
 typedef struct Zeton {
     int x;
     int y;
-    char barva;
+    char XorO;
     int aktiven;
 } Zeton;
 
-Zeton zeton_new(int x, int y, char barva);
+Zeton zeton_new(int x, int y, char XorO);
 
 #endif //INSTRUKCIJE_D001_ZETON_H

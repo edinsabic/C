@@ -15,3 +15,4 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
 
     return this;
 }
+

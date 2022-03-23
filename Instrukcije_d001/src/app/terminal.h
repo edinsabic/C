@@ -9,7 +9,7 @@
 
 void terminal_init();
 
-_Noreturn int terminal_main();
+int terminal_main();
 void terminal_draw_world(World* world);
 void terminal_draw_helperWorld(World* world);
 
