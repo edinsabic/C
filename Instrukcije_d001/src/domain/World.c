@@ -8,7 +8,7 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     World this;
 
     // Vedno pri prirejanju elementov struct dodaj type cast
-    this = (World){.height = 3, .width = 3, .active = 0, .frames = 0, .zmagovalneKombinacije = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{0,4,8},{2,4,6}}};
+    this = (World){.height = 3, .width = 3, .active = 0, .frames = 0, .memoTabela = {{0,0,0}, {0,0,0}, {0,0,0}}};
 
     for (int i = 0; i < WORLD_ST_ZETONOV; i++) {
         this.zetoni[i].aktiven = 0;
@@ -17,29 +17,55 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     return this;
 }
 
-/*
-void dinamicnoPoisciZmagovalca() {
+// (return value) 0 - no winner detected, 1 - winner detected, 2 - it's a draw
+int dinamicnoPoisciZmagovalca(int x, int y, int enaALIdve, int memoTabela[SIRINA_BOARDA][SIRINA_BOARDA], World* world) {
+    if (memoTabela[x][y] == 0) {
+        memoTabela[x][y] = enaALIdve;
+    }
 
-}
- */
-
-/*
-// Zakaj memoTabela mora bit const?
-int jeKdoZmagal(int tabela[ST_ZMAGOVALNIH_KOMBINACIJ][3], int memoTabela[WORLD_ST_ZETONOV], World world) {
-    for (int i = 0; i < ST_ZMAGOVALNIH_KOMBINACIJ; ++i) {
-        if ((memoTabela[tabela[i][0]] > 0 && memoTabela[tabela[i][1]] > 0 && memoTabela[tabela[i][2]] > 0)
-            && (memoTabela[tabela[i][0]] == memoTabela[tabela[i][1]])
-            && (memoTabela[tabela[i][0]] == memoTabela[tabela[i][2]])) {
-
-            // world.active = 1;
+    for (int i = 0; i < SIRINA_BOARDA; i++) { //check col
+        if (memoTabela[x][i] != enaALIdve) {
+            break;
+        } if (i == SIRINA_BOARDA - 1) {
             return 1;
         }
     }
 
+    for (int i = 0; i < SIRINA_BOARDA; i++) { //check row
+        if (memoTabela[i][y] != enaALIdve) {
+            break;
+        } if (i == SIRINA_BOARDA - 1) {
+            return 1;
+        }
+    }
+
+    if (x == y) { // check the first diagonal
+        //we're on a diagonal (narisi si)
+        for (int i = 0; i < SIRINA_BOARDA; i++) {
+            if (memoTabela[i][i] != enaALIdve) {
+                break;
+            } if (i == SIRINA_BOARDA - 1) {
+                return 1;
+            }
+        }
+    }
+
+    if (x + y == SIRINA_BOARDA - 1) { // check the other diagonal
+        for (int i = 0; i < SIRINA_BOARDA; i++) {
+            if (memoTabela[i][(SIRINA_BOARDA-1)-i] != enaALIdve) {
+                break;
+            } if (i == SIRINA_BOARDA-1) {
+                return 1;
+            }
+        }
+    }
+
+    if (world->frames == (SIRINA_BOARDA * SIRINA_BOARDA)) { // check draw
+        return 2;
+    }
+
     return 0;
 }
-
-*/
 
 void poteza(World* world, int memoTabela[SIRINA_BOARDA][SIRINA_BOARDA], int input) {
     int zaVnest = (world->frames % 2) ? 1 : 2;

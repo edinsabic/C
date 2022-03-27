@@ -22,8 +22,8 @@
 typedef struct Terminal {
     int maxY;
     int maxX;
-    int steviloPolja;
     int input;
+    int steviloPolja; // za risanje pomoznega arraya
 } Terminal;
 
 Terminal terminal_init();

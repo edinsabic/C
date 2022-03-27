@@ -32,10 +32,8 @@ int terminal_main() {
 
         terminal_izpisi_in_pucanje(terminal.input);
 
-        int x, y;
-
-        x = terminal.input / SIRINA_BOARDA;
-        y = terminal.input % SIRINA_BOARDA;
+        int x = terminal.input / SIRINA_BOARDA; // nadstropje memoTabela
+        int y = terminal.input % SIRINA_BOARDA; // soba v nadstropju v memoTabela
 
         if (terminal.input >= 0 && terminal.input <= 8) { // input je veljaven
             if (world.memoTabela[x][y] != 1 && world.memoTabela[x][y] != 2) { // še mismo dodal sem
@@ -48,15 +46,13 @@ int terminal_main() {
         if (world.active == 1)
             break;
 
-        /*
-        // funkcija za preverit vseh 7 zmagovalnih kombinacij, in če se je kje pojavila
-        if (jeKdoZmagal(world.zmagovalneKombinacije, world.memoTabela, world)) {
+        // (pri tem if-u moramo dati == 1, ker če ne bo tudi v primeru drawa razlicno od nic in bo slo v if in ne else if)
+        if (dinamicnoPoisciZmagovalca(x, y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela, &world) == 1) {
+            // We got a winner
             world.active = 1;
             mvprintw(8, 0, "Game over!\nPlayer %c has won the game!\nPress any key to exit.", (world.frames % 2 == 0) ? 'O' : 'X');
-        }
-         */
-
-        if (world.frames == WORLD_ST_ZETONOV && world.active == 0) {
+        } else if ((dinamicnoPoisciZmagovalca (x, y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela, &world) == 2) && world.active == 0) {
+            // No one won, we got a draw
             mvaddstr(10, 0, "Game over! No one won. Press any key to exit.");
             move(0, 50);
             world.active = 1;
