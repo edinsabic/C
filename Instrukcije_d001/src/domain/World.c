@@ -3,7 +3,6 @@
 //
 
 #include "World.h"
-#include <stdlib.h>
 
 World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     World this;
@@ -18,6 +17,13 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     return this;
 }
 
+/*
+void dinamicnoPoisciZmagovalca() {
+
+}
+ */
+
+/*
 // Zakaj memoTabela mora bit const?
 int jeKdoZmagal(int tabela[ST_ZMAGOVALNIH_KOMBINACIJ][3], int memoTabela[WORLD_ST_ZETONOV], World world) {
     for (int i = 0; i < ST_ZMAGOVALNIH_KOMBINACIJ; ++i) {
@@ -33,13 +39,17 @@ int jeKdoZmagal(int tabela[ST_ZMAGOVALNIH_KOMBINACIJ][3], int memoTabela[WORLD_S
     return 0;
 }
 
-void poteza(World* world, int* memoTabela, int c) {
+*/
+
+void poteza(World* world, int memoTabela[SIRINA_BOARDA][SIRINA_BOARDA], int input) {
     int zaVnest = (world->frames % 2) ? 1 : 2;
-    memoTabela[c] = zaVnest;
+    int x = input / 3;
+    int y = input % 3;
+    memoTabela[x][y] = zaVnest;
 
     char znak = (world->frames % 2) ? 'O' : 'X';
 
-    Zeton zeton = zeton_new(c % 3, c / 3, znak);
+    Zeton zeton = zeton_new(input % 3, input / 3, znak);
     world->zetoni[world->frames] = zeton; // dodelimo tabeli zetonov zeton
 
     world->frames++;

@@ -32,8 +32,13 @@ int terminal_main() {
 
         terminal_izpisi_in_pucanje(terminal.input);
 
+        int x, y;
+
+        x = terminal.input / SIRINA_BOARDA;
+        y = terminal.input % SIRINA_BOARDA;
+
         if (terminal.input >= 0 && terminal.input <= 8) { // input je veljaven
-            if (world.memoTabela[terminal.input] != 1 && world.memoTabela[terminal.input] != 2) { // še mismo dodal sem
+            if (world.memoTabela[x][y] != 1 && world.memoTabela[x][y] != 2) { // še mismo dodal sem
                 poteza(&world, world.memoTabela, terminal.input); // torej zgodila se je poteza
             } else { // input, ki je ze bil izbran
                 mvaddstr(10, 0, "Your input has already been chosen, please try again!");
@@ -43,11 +48,13 @@ int terminal_main() {
         if (world.active == 1)
             break;
 
+        /*
         // funkcija za preverit vseh 7 zmagovalnih kombinacij, in če se je kje pojavila
         if (jeKdoZmagal(world.zmagovalneKombinacije, world.memoTabela, world)) {
             world.active = 1;
             mvprintw(8, 0, "Game over!\nPlayer %c has won the game!\nPress any key to exit.", (world.frames % 2 == 0) ? 'O' : 'X');
         }
+         */
 
         if (world.frames == WORLD_ST_ZETONOV && world.active == 0) {
             mvaddstr(10, 0, "Game over! No one won. Press any key to exit.");
