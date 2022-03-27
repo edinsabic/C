@@ -2,4 +2,5 @@
 Small projects in C\
 A directory will be created for each game\
 \
-Read the comment on the last commit
+The last game (Advanced version of Tic Tac Toe) is done\
+Check the 'Instrukcije_d001' directory
