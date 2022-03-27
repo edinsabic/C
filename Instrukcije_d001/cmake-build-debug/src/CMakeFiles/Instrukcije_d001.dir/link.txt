@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Instrukcije_d001.dir/app/terminal.c.o CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.o CMakeFiles/Instrukcije_d001.dir/domain/World.c.o CMakeFiles/Instrukcije_d001.dir/main.c.o  -o Instrukcije_d001  -lcurses /usr/lib/x86_64-linux-gnu/libform.so 
