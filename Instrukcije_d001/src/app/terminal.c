@@ -4,27 +4,25 @@
 
 #include "terminal.h"
 
-void terminal_init() {
+Terminal terminal_init() {
     initscr();
     curs_set(0);
 
-    noecho();
-    refresh();
-}
-
-Terminal terminal_new() {
     Terminal this;
 
     int y, x; getmaxyx(stdscr, y, x);
 
-    this = (Terminal){.maxX = x, .maxY = y, .counter = 0};
+    this = (Terminal){.maxX = x, .maxY = y, .steviloPolja = 0};
+
+    noecho();
+    refresh();
 
     return this;
 }
 
 int terminal_main() {
     World world = world_new();
-    Terminal terminal = terminal_new();
+    Terminal terminal = terminal_init();
 
     while (1) {
         terminal_draw_world(&world);
@@ -68,7 +66,7 @@ int terminal_main() {
 }
 
 void terminal_draw_world(World* world) {
-    Terminal terminal = terminal_new();
+    Terminal terminal = terminal_init();
     int maxY = terminal.maxY, maxX = terminal.maxX;
 
     mvaddstr(3, 8, "<--- to show you where X/O will drop (it'll drop in the middle)");
@@ -77,8 +75,8 @@ void terminal_draw_world(World* world) {
     // Print out the helper matrix (to show where the piece will drop)
     for (int y = 0; y < world->height; ++y) {
         for (int x = 0; x < world->width; ++x) {
-            mvaddch(y + 2, x + 2,  terminal.counter + '0');
-            terminal.counter++;
+            mvaddch(y + 2, x + 2,  terminal.steviloPolja + '0');
+            terminal.steviloPolja++;
         }
     }
 

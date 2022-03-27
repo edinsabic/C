@@ -22,11 +22,11 @@
 typedef struct Terminal {
     int maxY;
     int maxX;
-    int counter;
+    int steviloPolja;
     int input;
 } Terminal;
 
-void terminal_init();
+Terminal terminal_init();
 int terminal_main();
 void terminal_draw_world(World* world);
 void terminal_izpisi_in_pucanje(int c);
