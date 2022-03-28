@@ -4,7 +4,7 @@ include_directories(${CURSES_INCLUDE_DIR})
 include_directories(app)
 include_directories(domain)
 
-add_executable(Instrukcije_d001
+add_executable(002_tick_tac_toe_oop
         app/terminal.c
         app/terminal.h
         domain/Zeton.c
@@ -15,4 +15,4 @@ add_executable(Instrukcije_d001
         domain/utils.h
         main.c)
 
-target_link_libraries(Instrukcije_d001 ${CURSES_LIBRARIES})
+target_link_libraries(002_tick_tac_toe_oop ${CURSES_LIBRARIES})
