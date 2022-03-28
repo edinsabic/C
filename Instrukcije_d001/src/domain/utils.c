@@ -4,6 +4,6 @@
 
 #include "utils.h"
 
-int get_platform_number() {
-    return PLATFORM_NUMBER; // 0 - Windows, 1 - Linux
+int utils_get_platform_number() {
+    return UTILS_PLATFORM_NUMBER; // 0 - Win, 1 - Linux
 }

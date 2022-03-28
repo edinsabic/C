@@ -7,7 +7,7 @@
 #include "app/terminal.h"
 
 int main() {
-    terminal_init();
-
-    return terminal_main();
+    Terminal terminal = terminal_new();
+    terminal_init(&terminal);
+    return terminal_main(&terminal);
 }

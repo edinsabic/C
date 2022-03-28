@@ -20,7 +20,7 @@ typedef struct World {
 } World;
 
 World world_new();
-int world_dinamicnoPoisciZmagovalca(World* world, int x, int y, int enaALIdve, int memoTabela[WORLD_SIRINA_BOARDA][WORLD_SIRINA_BOARDA]);
-void world_poteza(World* world, int memoTabela[WORLD_SIRINA_BOARDA][WORLD_SIRINA_BOARDA], int c);
+int world_dinamicno_poisci_zmagovalca(World* world, int x, int y);
+void world_poteza(World* world, int c);
 
 #endif //INSTRUKCIJE_D001_WORLD_H

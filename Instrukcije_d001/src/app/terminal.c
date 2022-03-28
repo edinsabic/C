@@ -29,7 +29,7 @@ Terminal terminal_new() {
 void terminal_validate_input(World* world, Terminal_input* input) {
     if (input->input >= 0 && input->input <= 8) { // input je veljaven
         if (world->memoTabela[input->x][input->y] != 1 && world->memoTabela[input->x][input->y] != 2) { // še mismo dodal sem
-            world_poteza(world, world->memoTabela, input->input); // torej zgodila se je poteza
+            world_poteza(world, input->input); // torej zgodila se je poteza
         } else { // input, ki je ze bil izbran
             mvaddstr(10, 0, "Your input has already been chosen, please try again!");
         }
@@ -79,11 +79,12 @@ int terminal_main() {
             break;
 
         // (pri tem if-u moramo dati == 1, ker če ne bo tudi v primeru drawa razlicno od nic in bo slo v if in ne else if)
-        if (world_dinamicnoPoisciZmagovalca(&world, input.x, input.y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela) == 1) {
+        int kdoJeZmagal = world_dinamicno_poisci_zmagovalca(&world, input.x, input.y);
+        if (kdoJeZmagal == 1) {
             // We got a winner
             world.active = 1;
             mvprintw(8, 0, "Game over!\nPlayer %c has won the game!\nPress any key to exit.", (world.frames % 2 == 0) ? 'O' : 'X');
-        } else if ((world_dinamicnoPoisciZmagovalca (&world, input.x, input.y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela) == 2) && world.active == 0) {
+        } else if (kdoJeZmagal == 2 && world.active == 0) {
             // No one won, we got a draw
             mvaddstr(10, 0, "Game over! No one won. Press any key to exit.");
             move(0, 50);
@@ -91,9 +92,9 @@ int terminal_main() {
         }
     }
 
-    if (get_platform_number() == 0) {
+    if (utils_get_platform_number() == 0) {
         system("cls");
-    } else if (get_platform_number() == 1) {
+    } else if (utils_get_platform_number() == 1) {
         system("clear");
     }
 
