@@ -1,5 +1,0 @@
-/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/Instrukcije_d001.dir
