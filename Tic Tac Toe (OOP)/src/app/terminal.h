@@ -6,15 +6,17 @@
 #ifndef GITHUB_TERMINAL_H
 #define GITHUB_TERMINAL_H
 
-#include "World.h"
-#include "utils.h"
+//Najprej so sistemski importi potem šele lokalni importi.
 #include <curses.h>
 #include <string.h>
 #include <stdlib.h>
 
+#include "World.h"
+#include "utils.h"
+
 typedef struct Terminal {
     int maxY;
-    int maxX;
+    int maxX; 
     int steviloPolja; // za risanje pomoznega arraya
 } Terminal;
 
@@ -27,10 +29,10 @@ typedef struct Terminal_input {
 
 void terminal_init();
 Terminal terminal_new();
-int terminal_main();
+int terminal_main(Terminal* terminal);
 Terminal_input terminal_input_new(int input, int x, int y);
 Terminal_input terminal_get_input(World* world);
 void terminal_validate_input(World* world, Terminal_input* input);
-void terminal_draw_world(World* world);
+void terminal_draw_world(Terminal* terminal, World* world);
 
 #endif //GITHUB_TERMINAL_H

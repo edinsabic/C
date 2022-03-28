@@ -12,10 +12,8 @@ void terminal_init() {
     refresh();
 }
 
-Terminal terminal_new() {
+Terminal terminal_new(int x, int y) {
     Terminal this;
-
-    int y, x; getmaxyx(stdscr, y, x);
 
     this = (Terminal){
         .maxY = y,
@@ -67,11 +65,11 @@ Terminal_input terminal_input_new(int input, int x, int y) {
     return this;
 }
 
-int terminal_main() {
+int terminal_main(Terminal* terminal) {
     World world = world_new();
 
     while (1) {
-        terminal_draw_world(&world);
+        terminal_draw_world(terminal, &world);
 
         Terminal_input input = terminal_get_input(&world);
 
@@ -101,9 +99,10 @@ int terminal_main() {
     return 0;
 }
 
-void terminal_draw_world(World* world) {
-    Terminal terminal = terminal_new();
-    int maxY = terminal.maxY, maxX = terminal.maxX;
+void terminal_draw_world(Terminal* terminal, World* world) {
+
+    int maxY = terminal.maxY;
+    int maxY = terminal.maxY;
 
     mvaddstr(3, 8, "<--- to show you where X/O will drop (it'll drop in the middle)");
     mvaddstr(4, 13, "[X will start]");
