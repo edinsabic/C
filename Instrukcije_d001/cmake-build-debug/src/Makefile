@@ -206,6 +206,33 @@ domain/Zeton.c.s:
 	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Instrukcije_d001.dir/build.make src/CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.s
 .PHONY : domain/Zeton.c.s
 
+domain/utils.o: domain/utils.c.o
+
+.PHONY : domain/utils.o
+
+# target to build an object file
+domain/utils.c.o:
+	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Instrukcije_d001.dir/build.make src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o
+.PHONY : domain/utils.c.o
+
+domain/utils.i: domain/utils.c.i
+
+.PHONY : domain/utils.i
+
+# target to preprocess a source file
+domain/utils.c.i:
+	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Instrukcije_d001.dir/build.make src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.i
+.PHONY : domain/utils.c.i
+
+domain/utils.s: domain/utils.c.s
+
+.PHONY : domain/utils.s
+
+# target to generate assembly for a file
+domain/utils.c.s:
+	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug && $(MAKE) -f src/CMakeFiles/Instrukcije_d001.dir/build.make src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.s
+.PHONY : domain/utils.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -251,6 +278,9 @@ help:
 	@echo "... domain/Zeton.o"
 	@echo "... domain/Zeton.i"
 	@echo "... domain/Zeton.s"
+	@echo "... domain/utils.o"
+	@echo "... domain/utils.i"
+	@echo "... domain/utils.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -12,6 +12,8 @@ Zeton.h
 
 ../src/domain/Zeton.h
 
+../src/domain/utils.h
+
 /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.c
 terminal.h
 /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.h
@@ -19,6 +21,8 @@ terminal.h
 /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.h
 World.h
 /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/World.h
+utils.h
+/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/utils.h
 curses.h
 -
 string.h

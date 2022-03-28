@@ -4,6 +4,7 @@
 src/CMakeFiles/Instrukcije_d001.dir/app/terminal.c.o
  ../src/domain/World.h
  ../src/domain/Zeton.h
+ ../src/domain/utils.h
  /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.c
  /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.h
 src/CMakeFiles/Instrukcije_d001.dir/domain/World.c.o
@@ -13,8 +14,12 @@ src/CMakeFiles/Instrukcije_d001.dir/domain/World.c.o
 src/CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.o
  /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/Zeton.c
  /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/Zeton.h
+src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o
+ /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.c
+ /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.h
 src/CMakeFiles/Instrukcije_d001.dir/main.c.o
  ../src/domain/World.h
  ../src/domain/Zeton.h
+ ../src/domain/utils.h
  /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.h
  /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c
