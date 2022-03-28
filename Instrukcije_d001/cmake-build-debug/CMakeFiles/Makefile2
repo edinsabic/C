@@ -92,12 +92,12 @@ src/clean: src/CMakeFiles/Instrukcije_d001.dir/clean
 src/CMakeFiles/Instrukcije_d001.dir/all:
 	$(MAKE) -f src/CMakeFiles/Instrukcije_d001.dir/build.make src/CMakeFiles/Instrukcije_d001.dir/depend
 	$(MAKE) -f src/CMakeFiles/Instrukcije_d001.dir/build.make src/CMakeFiles/Instrukcije_d001.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target Instrukcije_d001"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Instrukcije_d001"
 .PHONY : src/CMakeFiles/Instrukcije_d001.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/Instrukcije_d001.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/Instrukcije_d001.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles 0
 .PHONY : src/CMakeFiles/Instrukcije_d001.dir/rule

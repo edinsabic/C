@@ -11,6 +11,6 @@ add_executable(Instrukcije_d001
         domain/Zeton.h
         domain/World.c
         domain/World.h
-        main.c)
+        main.c domain/utils.c domain/utils.h)
 
 target_link_libraries(Instrukcije_d001 ${CURSES_LIBRARIES})

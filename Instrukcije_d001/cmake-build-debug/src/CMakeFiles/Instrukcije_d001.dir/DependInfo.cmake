@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.c" "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/Instrukcije_d001.dir/app/terminal.c.o"
   "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/World.c" "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/Instrukcije_d001.dir/domain/World.c.o"
   "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/Zeton.c" "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.o"
+  "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.c" "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o"
   "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c" "/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src/CMakeFiles/Instrukcije_d001.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

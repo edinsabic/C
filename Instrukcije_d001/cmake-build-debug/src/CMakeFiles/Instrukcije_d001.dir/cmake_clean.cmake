@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Instrukcije_d001.dir/app/terminal.c.o"
   "CMakeFiles/Instrukcije_d001.dir/domain/World.c.o"
   "CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.o"
+  "CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o"
   "CMakeFiles/Instrukcije_d001.dir/main.c.o"
   "Instrukcije_d001"
   "Instrukcije_d001.pdb"

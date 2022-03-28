@@ -98,6 +98,12 @@
 		<Unit filename="/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/Zeton.h">
 			<Option target="Instrukcije_d001"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.c">
+			<Option target="Instrukcije_d001"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.h">
+			<Option target="Instrukcije_d001"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c">
 			<Option target="Instrukcije_d001"/>
 		</Unit>
