@@ -1,17 +1,15 @@
-# C
+<img align="center" height="300" src="https://png.pngtree.com/png-vector/20210217/ourlarge/pngtree-game-time-neon-sign-vector-png-image_2915556.jpg">
 
-Small projects in C
-A directory will be created for each game
+# Retro games for terminal
 
-The last game (Advanced version of Tic Tac Toe) is done
-Check the 'Instrukcije_d001' directory
+- [x] Tick tac toe
+- [x] Four in line 
 
-All the basics of the game have been written, it's ready to be tested
+# Running
 
-How to run it:
-compile it with the option: -lncurses, e.g.
-	gcc main.c -lncurses
-and then:
-	./a.out
+```
+cd <game>
+gcc -v -o main.exe main.c -lncurses
+./main.exe
 
-All the other rules are explained when you run the game
+```
