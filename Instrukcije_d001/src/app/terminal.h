@@ -26,10 +26,19 @@ typedef struct Terminal {
     int steviloPolja; // za risanje pomoznega arraya
 } Terminal;
 
-Terminal terminal_init();
+typedef struct Terminal_input {
+    int input; // de facto user's input (0 - 8)
+    int x; // nadstropje memoTabele
+    int y; // soba v nadstropju memoTabele
+    // int isValid; // flag za veljavnost strukture
+} Terminal_input;
+
+void terminal_init();
+Terminal terminal_new();
 int terminal_main();
+Terminal_input terminal_input_new(int input, int x, int y);
+Terminal_input terminal_get_input();
 void terminal_draw_world(World* world);
-void terminal_izpisi_in_pucanje(int c);
 int get_platform_number();
 
 #endif //GITHUB_TERMINAL_H

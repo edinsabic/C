@@ -8,7 +8,17 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     World this;
 
     // Vedno pri prirejanju elementov struct dodaj type cast
-    this = (World){.height = 3, .width = 3, .active = 0, .frames = 0, .memoTabela = {{0,0,0}, {0,0,0}, {0,0,0}}};
+    this = (World){
+            .height = 3,
+            .width = 3,
+            .active = 0,
+            .frames = 0,
+            .memoTabela = {
+                    {0,0,0},
+                    {0,0,0},
+                    {0,0,0}
+            }
+    };
 
     for (int i = 0; i < WORLD_ST_ZETONOV; i++) {
         this.zetoni[i].aktiven = 0;

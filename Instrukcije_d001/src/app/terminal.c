@@ -4,40 +4,64 @@
 
 #include "terminal.h"
 
-Terminal terminal_init() {
+void terminal_init() {
     initscr();
     curs_set(0);
 
+    noecho();
+    refresh();
+}
+
+Terminal terminal_new() {
     Terminal this;
 
     int y, x; getmaxyx(stdscr, y, x);
 
     this = (Terminal){.maxX = x, .maxY = y, .steviloPolja = 0};
 
-    noecho();
-    refresh();
+    return this;
+}
+
+Terminal_input terminal_get_input() {
+    mvaddstr(0, 0, "Enter a number between 0 and 8 to add your piece:");
+    int input = getch() - '0'; // read the players input
+
+    Terminal_input vhod = terminal_input_new(input, input / SIRINA_BOARDA, input % SIRINA_BOARDA);
+
+    mvaddch(0, 50, input + '0'); // za prikazat userjev input
+
+    // to je za popucat napačne inpute (šele naslednjo iteracijo)
+    move(10, 0); clrtoeol();
+
+    if (input < 0 || input > 8)
+        mvaddstr(10, 0, "Your input is invalid, please try again!");
+
+    return vhod;
+}
+
+Terminal_input terminal_input_new(int input, int x, int y) {
+    Terminal_input this;
+
+    this = (Terminal_input){
+        .input = input,
+        .x = x,
+        .y = y
+    };
 
     return this;
 }
 
 int terminal_main() {
     World world = world_new();
-    Terminal terminal = terminal_init();
 
     while (1) {
         terminal_draw_world(&world);
 
-        mvaddstr(0, 0, "Enter a number between 0 and 8 to add your piece:");
-        terminal.input = getch() - '0'; // read the players input
+        Terminal_input vhod = terminal_get_input();
 
-        terminal_izpisi_in_pucanje(terminal.input);
-
-        int x = terminal.input / SIRINA_BOARDA; // nadstropje memoTabela
-        int y = terminal.input % SIRINA_BOARDA; // soba v nadstropju v memoTabela
-
-        if (terminal.input >= 0 && terminal.input <= 8) { // input je veljaven
-            if (world.memoTabela[x][y] != 1 && world.memoTabela[x][y] != 2) { // še mismo dodal sem
-                poteza(&world, world.memoTabela, terminal.input); // torej zgodila se je poteza
+        if (vhod.input >= 0 && vhod.input <= 8) { // input je veljaven
+            if (world.memoTabela[vhod.x][vhod.y] != 1 && world.memoTabela[vhod.x][vhod.y] != 2) { // še mismo dodal sem
+                poteza(&world, world.memoTabela, vhod.input); // torej zgodila se je poteza
             } else { // input, ki je ze bil izbran
                 mvaddstr(10, 0, "Your input has already been chosen, please try again!");
             }
@@ -47,11 +71,11 @@ int terminal_main() {
             break;
 
         // (pri tem if-u moramo dati == 1, ker če ne bo tudi v primeru drawa razlicno od nic in bo slo v if in ne else if)
-        if (dinamicnoPoisciZmagovalca(x, y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela, &world) == 1) {
+        if (dinamicnoPoisciZmagovalca(vhod.x, vhod.y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela, &world) == 1) {
             // We got a winner
             world.active = 1;
             mvprintw(8, 0, "Game over!\nPlayer %c has won the game!\nPress any key to exit.", (world.frames % 2 == 0) ? 'O' : 'X');
-        } else if ((dinamicnoPoisciZmagovalca (x, y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela, &world) == 2) && world.active == 0) {
+        } else if ((dinamicnoPoisciZmagovalca (vhod.x, vhod.y, (world.frames % 2 == 0) ? 1 : 2, world.memoTabela, &world) == 2) && world.active == 0) {
             // No one won, we got a draw
             mvaddstr(10, 0, "Game over! No one won. Press any key to exit.");
             move(0, 50);
@@ -69,7 +93,7 @@ int terminal_main() {
 }
 
 void terminal_draw_world(World* world) {
-    Terminal terminal = terminal_init();
+    Terminal terminal = terminal_new();
     int maxY = terminal.maxY, maxX = terminal.maxX;
 
     mvaddstr(3, 8, "<--- to show you where X/O will drop (it'll drop in the middle)");
@@ -106,16 +130,6 @@ void terminal_draw_world(World* world) {
     }
 
     refresh();
-}
-
-void terminal_izpisi_in_pucanje(int input) {
-    mvaddch(0, 50, input + '0'); // za prikazat userjev input
-
-    // to je za popucat napačne inpute (šele naslednjo iteracijo)
-    move(10, 0); clrtoeol();
-
-    if (input < 0 || input > 8)
-        mvaddstr(10, 0, "Your input is invalid, please try again!");
 }
 
 int get_platform_number() {
