@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/Four_in_a_line_napredno.dir/app/terminal.c.o CMakeFiles/Four_in_a_line_napredno.dir/domain/Zeton.c.o CMakeFiles/Four_in_a_line_napredno.dir/domain/World.c.o CMakeFiles/Four_in_a_line_napredno.dir/main.c.o  -o Four_in_a_line_napredno  -lcurses /usr/lib/x86_64-linux-gnu/libform.so 

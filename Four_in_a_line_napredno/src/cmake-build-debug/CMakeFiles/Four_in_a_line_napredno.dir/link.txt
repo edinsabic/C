@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/Four_in_a_line_napredno.dir/app/terminal.o CMakeFiles/Four_in_a_line_napredno.dir/domain/Zeton.o CMakeFiles/Four_in_a_line_napredno.dir/domain/World.o CMakeFiles/Four_in_a_line_napredno.dir/main.o  -o Four_in_a_line_napredno  -lcurses -lform 

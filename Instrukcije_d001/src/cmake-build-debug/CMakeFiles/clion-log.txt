@@ -1,1 +1,0 @@
-CMakeLists.txt not found in C:\Users\Edin\Desktop\C\GitHub\Instrukcije_d001\src Select CMakeLists.txt

@@ -1,3 +1,0 @@
-/mnt/c/Users/Edin/Desktop/C/GitHub/Four_in_a_line_napredno/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Edin/Desktop/C/GitHub/Four_in_a_line_napredno/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Edin/Desktop/C/GitHub/Four_in_a_line_napredno/src/cmake-build-debug/CMakeFiles/Four_in_a_line_napredno.dir
