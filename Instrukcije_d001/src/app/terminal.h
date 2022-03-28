@@ -13,8 +13,8 @@
 #include <stdlib.h>
 
 typedef struct Terminal {
-    int maxY;
-    int maxX;
+    int maxY; // visina terminala
+    int maxX; // sirina terminala
     int steviloPolja; // za risanje pomoznega arraya
 } Terminal;
 
