@@ -96,22 +96,9 @@ src/CMakeFiles/Instrukcije_d001.dir/domain/World.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Instrukcije_d001.dir/domain/World.c.s"
 	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/World.c -o CMakeFiles/Instrukcije_d001.dir/domain/World.c.s
 
-src/CMakeFiles/Instrukcije_d001.dir/main.c.o: src/CMakeFiles/Instrukcije_d001.dir/flags.make
-src/CMakeFiles/Instrukcije_d001.dir/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/Instrukcije_d001.dir/main.c.o"
-	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Instrukcije_d001.dir/main.c.o   -c /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c
-
-src/CMakeFiles/Instrukcije_d001.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Instrukcije_d001.dir/main.c.i"
-	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c > CMakeFiles/Instrukcije_d001.dir/main.c.i
-
-src/CMakeFiles/Instrukcije_d001.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Instrukcije_d001.dir/main.c.s"
-	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c -o CMakeFiles/Instrukcije_d001.dir/main.c.s
-
 src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o: src/CMakeFiles/Instrukcije_d001.dir/flags.make
 src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o: ../src/domain/utils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o"
 	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o   -c /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.c
 
 src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.i: cmake_force
@@ -122,13 +109,26 @@ src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Instrukcije_d001.dir/domain/utils.c.s"
 	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/domain/utils.c -o CMakeFiles/Instrukcije_d001.dir/domain/utils.c.s
 
+src/CMakeFiles/Instrukcije_d001.dir/main.c.o: src/CMakeFiles/Instrukcije_d001.dir/flags.make
+src/CMakeFiles/Instrukcije_d001.dir/main.c.o: ../src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/Instrukcije_d001.dir/main.c.o"
+	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Instrukcije_d001.dir/main.c.o   -c /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c
+
+src/CMakeFiles/Instrukcije_d001.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Instrukcije_d001.dir/main.c.i"
+	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c > CMakeFiles/Instrukcije_d001.dir/main.c.i
+
+src/CMakeFiles/Instrukcije_d001.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Instrukcije_d001.dir/main.c.s"
+	cd /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/cmake-build-debug/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c -o CMakeFiles/Instrukcije_d001.dir/main.c.s
+
 # Object files for target Instrukcije_d001
 Instrukcije_d001_OBJECTS = \
 "CMakeFiles/Instrukcije_d001.dir/app/terminal.c.o" \
 "CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.o" \
 "CMakeFiles/Instrukcije_d001.dir/domain/World.c.o" \
-"CMakeFiles/Instrukcije_d001.dir/main.c.o" \
-"CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o"
+"CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o" \
+"CMakeFiles/Instrukcije_d001.dir/main.c.o"
 
 # External object files for target Instrukcije_d001
 Instrukcije_d001_EXTERNAL_OBJECTS =
@@ -136,8 +136,8 @@ Instrukcije_d001_EXTERNAL_OBJECTS =
 src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/app/terminal.c.o
 src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/domain/Zeton.c.o
 src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/domain/World.c.o
-src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/main.c.o
 src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/domain/utils.c.o
+src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/main.c.o
 src/Instrukcije_d001: src/CMakeFiles/Instrukcije_d001.dir/build.make
 src/Instrukcije_d001: /usr/lib/x86_64-linux-gnu/libcurses.so
 src/Instrukcije_d001: /usr/lib/x86_64-linux-gnu/libform.so

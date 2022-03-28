@@ -13,6 +13,8 @@ Zeton.h
 ../src/domain/Zeton.h
 
 ../src/domain/utils.h
+utils.h
+../src/domain/utils.h
 
 /mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.c
 terminal.h
@@ -29,4 +31,10 @@ string.h
 -
 stdlib.h
 -
+
+/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/main.c
+stdio.h
+-
+app/terminal.h
+/mnt/c/Users/Edin/Desktop/C/GitHub/Instrukcije_d001/src/app/terminal.h
 
