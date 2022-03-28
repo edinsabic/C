@@ -18,8 +18,8 @@ Terminal terminal_new() {
     int y, x; getmaxyx(stdscr, y, x);
 
     this = (Terminal){
-        .maxX = x,
         .maxY = y,
+        .maxX = x,
         .steviloPolja = 0
     };
 

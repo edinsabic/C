@@ -5,6 +5,8 @@
 #ifndef INSTRUKCIJE_D001_UTILS_H
 #define INSTRUKCIJE_D001_UTILS_H
 
+#include "utils.h"
+
 #if defined(_WIN32)
 #define UTILS_PLATFORM_NUMBER 0 // Windows
 #elif defined(_WIN64)

@@ -5,5 +5,5 @@
 #include "utils.h"
 
 int utils_get_platform_number() {
-    return UTILS_PLATFORM_NUMBER; // 0 - Win, 1 - Linux
+    return UTILS_PLATFORM_NUMBER;
 }
