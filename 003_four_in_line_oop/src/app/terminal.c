@@ -16,8 +16,10 @@ int terminal_main() {
     World world = world_new();
 
 
-        terminal_draw_world(&world);
+    while (1) {
 
+        terminal_draw_world(&world);
+    }
 
 
     return 0;
