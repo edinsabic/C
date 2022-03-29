@@ -11,6 +11,8 @@ add_executable(003_four_in_line_oop
         domain/Zeton.h
         domain/World.c
         domain/World.h
+        domain/utils.c
+        domain/utils.h
         main.c)
 
 target_link_libraries(003_four_in_line_oop ${CURSES_LIBRARIES})

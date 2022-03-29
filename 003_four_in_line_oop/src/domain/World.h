@@ -8,11 +8,16 @@
 #include "Zeton.h"
 
 #define WORLD_ST_ZETONOV 42
+#define WORLD_ST_VRSTIC 6
+#define WORLD_ST_STOLPCEV 7
 
 typedef struct World {
     int height;
     int width;
     Zeton zetoni[WORLD_ST_ZETONOV];
+    int active; // ali je terminal ziv ali mrtev (igre konc al ne)
+    int frames; // kdo bo na vrsti (omejen z WORLD_ST_ZETONOV)
+    int memo_tabela[WORLD_ST_VRSTIC][WORLD_ST_STOLPCEV];
 } World;
 
 World world_new();

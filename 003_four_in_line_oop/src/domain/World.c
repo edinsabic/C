@@ -7,8 +7,21 @@
 World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     World this;
 
-    this.height = 6;
-    this.width = 7;
+    this = (World){
+        .height = WORLD_ST_VRSTIC,
+        .width = WORLD_ST_STOLPCEV,
+        .active = 0,
+        .frames = 0,
+        .memo_tabela = {
+                {0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0}
+        }
+    };
+
     for (int i = 0; i < WORLD_ST_ZETONOV; i++) {
         this.zetoni[i].aktiven = 0;
     }
