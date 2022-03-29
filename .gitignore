@@ -1,5 +1,13 @@
+cmake-build-debug
 
 .idea
-*.out
-*.a
-cmake-build-debug
+.idea/misc.xml
+004_four_in_line_oop/CMakeLists.txt
+004_four_in_line_oop/src/app/terminal.c
+004_four_in_line_oop/src/app/terminal.h
+004_four_in_line_oop/src/CMakeLists.txt
+004_four_in_line_oop/src/domain/World.c
+004_four_in_line_oop/src/domain/World.h
+004_four_in_line_oop/src/domain/Zeton.c
+004_four_in_line_oop/src/domain/Zeton.h
+004_four_in_line_oop/src/main.c
