@@ -1,6 +1,6 @@
-<img align="center" height="300" src="https://png.pngtree.com/png-vector/20210217/ourlarge/pngtree-game-time-neon-sign-vector-png-image_2915556.jpg">
+<img align="center" width="100%" height="80%" src="https://www.retrogames-online.com/wp-content/themes/retrogames/images/retrogames_logo_v01.png">
 
-# Retro games for terminal
+---
 
 - [x] Tick tac toe
 - [x] Four in line 
