@@ -3,3 +3,6 @@
 *.out
 *.a
 cmake-build-debug
+build
+dist32
+dist64

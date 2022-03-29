@@ -13,10 +13,18 @@
   
   <br>
    
-## Compile and run
+## Compile and run (linux, ncurses)
 ```
 cd <game>
 gcc -v -o main.exe main.c -lncurses
 ./main.exe
 
+```
+
+## Create exe distribution for 32 and 64 (windows)
+```
+cd 003_tick_tac_toe_oop_sdl
+./make.bat
+cd dist64
+./003_tick_tac_toe_oop_sdl.exe
 ```
