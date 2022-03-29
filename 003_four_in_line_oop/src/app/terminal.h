@@ -14,7 +14,6 @@
 typedef struct Terminal {
     int maxY;
     int maxX;
-    int stevilkaStolpca;
 } Terminal;
 
 typedef struct Terminal_input {
@@ -28,5 +27,6 @@ Terminal_input terminal_input_new(int input);
 void terminal_validate_input(Terminal_input input, World* world);
 void terminal_draw_world(Terminal* terminal, World* world);
 int terminal_main(Terminal* terminal);
+void terminal_spuscanje_zetona(Terminal_input* input, World* world);
 
 #endif //GITHUB_TERMINAL_H

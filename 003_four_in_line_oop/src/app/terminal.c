@@ -17,8 +17,7 @@ Terminal terminal_new(int y, int x) {
 
     this = (Terminal){
         .maxY = x,
-        .maxX = y,
-        .stevilkaStolpca = 0
+        .maxX = y
     };
 
     return this;
@@ -52,7 +51,7 @@ Terminal_input terminal_get_input(World* world) {
 
 void terminal_validate_input(Terminal_input input, World* world) {
     if (input.stStolpca >= 0 && input.stStolpca <= WORLD_ST_STOLPCEV - 1) {
-        mvaddstr(10, 0, "Input je veljaven, ustvari potezo.");
+        terminal_spuscanje_zetona(&input, world);
     }
 
     if (input.stStolpca < 0 || input.stStolpca >= WORLD_ST_STOLPCEV)
@@ -121,4 +120,14 @@ void terminal_draw_world(Terminal* terminal, World* world) {
     }
 
     refresh();
+}
+
+void terminal_spuscanje_zetona(Terminal_input* input, World* world) {
+    if (world->counterjiStolpcev[input->stStolpca] < WORLD_ST_VRSTIC) {
+        world_popolnjenostStolpcev(world, world->stolpci[input->stStolpca], world->counterjiStolpcev[input->stStolpca]++, input->stStolpca);
+
+        world->frames++;
+    } else {
+        mvprintw(4, 0, "Column %d is already full! Please choose another one.", input->stStolpca);
+    }
 }
