@@ -11,3 +11,8 @@ cmake-build-debug
 004_four_in_line_oop/src/domain/Zeton.c
 004_four_in_line_oop/src/domain/Zeton.h
 004_four_in_line_oop/src/main.c
+003_four_in_line_oop/CMakeLists.txt
+003_four_in_line_oop/src/CMakeLists.txt
+003_four_in_line_oop/CMakeLists.txt
+003_four_in_line_oop/src/CMakeLists.txt
+003_four_in_line_oop/CMakeLists.txt
