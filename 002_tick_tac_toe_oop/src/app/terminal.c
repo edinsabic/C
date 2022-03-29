@@ -101,8 +101,8 @@ int terminal_main(Terminal* terminal) {
 
 void terminal_draw_world(Terminal* terminal, World* world) {
 
-    int maxY = terminal.maxY;
-    int maxY = terminal.maxY;
+    int maxY = terminal->maxY;
+    int maxX = terminal->maxX;
 
     mvaddstr(3, 8, "<--- to show you where X/O will drop (it'll drop in the middle)");
     mvaddstr(4, 13, "[X will start]");
@@ -110,8 +110,8 @@ void terminal_draw_world(Terminal* terminal, World* world) {
     // Print out the helper matrix (to show where the piece will drop)
     for (int y = 0; y < world->height; ++y) {
         for (int x = 0; x < world->width; ++x) {
-            mvaddch(y + 2, x + 2,  terminal.steviloPolja + '0');
-            terminal.steviloPolja++;
+            mvaddch(y + 2, x + 2,  terminal->steviloPolja + '0');
+            terminal->steviloPolja++;
         }
     }
 
