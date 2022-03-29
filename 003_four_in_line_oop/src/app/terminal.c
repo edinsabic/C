@@ -18,6 +18,7 @@ Terminal terminal_new(int y, int x) {
     this = (Terminal){
         .maxY = x,
         .maxX = y,
+        .stevilkaStolpca = 0
     };
 
     return this;
@@ -34,14 +35,28 @@ Terminal_input terminal_input_new(int input) {
 }
 
 Terminal_input terminal_get_input(World* world) {
-    mvaddstr(0, 0, "Enter a number between 0 and 8 to add your piece:");
+    mvaddstr(0, 0, "Enter a number between 0 and 6 to add your piece:");
     int vnos = getch() - '0'; // read the players input
 
     Terminal_input input = terminal_input_new(vnos);
 
     mvaddch(0, 50, vnos + '0');
 
+    // to je za popucat napačne inpute (šele naslednjo iteracijo)
+    move(10, 0); clrtoeol();
+
+    terminal_validate_input(input, world);
+
     return input;
+}
+
+void terminal_validate_input(Terminal_input input, World* world) {
+    if (input.stStolpca >= 0 && input.stStolpca <= WORLD_ST_STOLPCEV - 1) {
+        mvaddstr(10, 0, "Input je veljaven, ustvari potezo.");
+    }
+
+    if (input.stStolpca < 0 || input.stStolpca >= WORLD_ST_STOLPCEV)
+        mvaddstr(10, 0, "Your input is invalid, please try again!");
 }
 
 int terminal_main(Terminal* terminal) {
@@ -75,6 +90,13 @@ int terminal_main(Terminal* terminal) {
 void terminal_draw_world(Terminal* terminal, World* world) {
     int maxY = terminal->maxY;
     int maxX = terminal->maxX;
+
+    // Print out the help (to show you where the piece will drop)
+    mvaddstr(maxY/ 2 - 5, 0, "The numbers below this line show you where your piece will drop!");
+    for (int x = 0; x < world->width; ++x) {
+        mvaddch(maxY / 2 - 3, x + maxX / 2 - 2, x + '0');
+    }
+
 
     for (int y = 0; y < world->height; ++y) {
         for (int x = 0; x < world->width; ++x) {
