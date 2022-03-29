@@ -12,15 +12,13 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
         .width = WORLD_ST_STOLPCEV,
         .active = 0,
         .frames = 0,
-        .memo_tabela = {
-                {0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0}
-        }
     };
+
+    for (int i = 0; i < WORLD_ST_VRSTIC; i++) {
+        for (int j = 0; j < WORLD_ST_STOLPCEV; j++) {
+            this.memo_tabela[i][j] = 0;
+        }
+    }
 
     for (int i = 0; i < WORLD_ST_ZETONOV; i++) {
         this.zetoni[i].aktiven = 0;

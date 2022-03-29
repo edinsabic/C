@@ -20,7 +20,7 @@ typedef struct Terminal_input {
     int stStolpca; // Za povedat kam dropat žeton
 } Terminal_input;
 
-void terminal_init(Terminal terminal);
+void terminal_init(Terminal* terminal);
 Terminal terminal_new(int y, int x);
 Terminal_input terminal_get_input(World* world);
 Terminal_input terminal_input_new(int input);

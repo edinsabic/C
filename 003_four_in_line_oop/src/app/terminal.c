@@ -4,7 +4,7 @@
 
 #include "terminal.h"
 
-void terminal_init(Terminal terminal) {
+void terminal_init(Terminal* terminal) {
     initscr();
     curs_set(0);
 
