@@ -127,6 +127,13 @@ void terminal_spuscanje_zetona(Terminal_input* input, World* world) {
     if (world->counterjiStolpcev[input->stStolpca] < WORLD_ST_VRSTIC) {
         world_popolnjenost_stolpcev(world, world->stolpci[input->stStolpca], world->counterjiStolpcev[input->stStolpca]++, input->stStolpca);
 
+        int zaVnest = (world->frames % 2) ? 1 : 2;
+
+        int x = input->stStolpca;
+        int y = WORLD_ST_VRSTIC - (world->counterjiStolpcev[x]);
+
+        world->memo_tabela[x][y] = zaVnest;
+
         char znak = (world->frames % 2) ? 'O' : 'X';
 
         Zeton zeton = zeton_new(input->stStolpca, WORLD_ST_VRSTIC - (world->counterjiStolpcev[input->stStolpca]), znak);
