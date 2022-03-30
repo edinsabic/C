@@ -41,16 +41,16 @@ Terminal_input terminal_get_input(World* world) {
 
     mvaddch(0, 50, vnos + '0');
 
-    // to je za popucat napačne inpute (šele naslednjo iteracijo)
-    move(10, 0); clrtoeol();
-    move(4, 0); clrtoeol();
-
     terminal_validate_input(input, world);
 
     return input;
 }
 
 void terminal_validate_input(Terminal_input input, World* world) {
+    // to je za popucat napačne inpute (šele naslednjo iteracijo)
+    move(10, 0); clrtoeol();
+    move(4, 0); clrtoeol();
+
     if (input.stStolpca >= 0 && input.stStolpca <= WORLD_ST_STOLPCEV - 1) {
         world->memo_tabela[(WORLD_ST_STOLPCEV - world->counterjiStolpcev[input.stStolpca] - 1) * 7 + (input.stStolpca)];
         terminal_spuscanje_zetona(&input, world);
@@ -107,7 +107,6 @@ void terminal_draw_world(Terminal* terminal, World* world) {
         mvaddch(maxY / 2 - 3, x + maxX / 2 - 2, x + '0');
     }
 
-
     for (int y = 0; y < world->height; ++y) {
         for (int x = 0; x < world->width; ++x) {
             int flag = 0;
@@ -139,14 +138,14 @@ void terminal_spuscanje_zetona(Terminal_input* input, World* world) {
 
         int zaVnest = (world->frames % 2) ? 1 : 2;
 
-        int x = WORLD_ST_VRSTIC - (world->counterjiStolpcev[input->stStolpca]);
-        int y = input->stStolpca;
+        int vrstica = WORLD_ST_VRSTIC - (world->counterjiStolpcev[input->stStolpca]);
+        int stolpec = input->stStolpca;
 
-        world->memo_tabela[x][y] = zaVnest;
+        world->memo_tabela[vrstica][stolpec] = zaVnest;
 
         char znak = (world->frames % 2) ? 'X' : 'O';
 
-        Zeton zeton = zeton_new(y, x, znak);
+        Zeton zeton = zeton_new(stolpec, vrstica, znak);
         world->zetoni[world->frames] = zeton; // dodelimo tabeli zetonov zeton
 
         world->frames++;
