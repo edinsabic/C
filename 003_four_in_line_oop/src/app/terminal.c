@@ -56,7 +56,7 @@ void terminal_validate_input(Terminal_input input, World* world) {
         terminal_spuscanje_zetona(&input, world);
     }
 
-    if (input.stStolpca < 0 || input.stStolpca >= WORLD_ST_STOLPCEV)
+    if ((input.stStolpca < 0 || input.stStolpca >= WORLD_ST_STOLPCEV) && !world->active)
         mvaddstr(10, 0, "Your input is invalid, please try again!");
 }
 
@@ -66,11 +66,21 @@ int terminal_main(Terminal* terminal) {
     while (1) {
         terminal_draw_world(terminal, &world);
 
-        if (world.active) {
+        if (world.active)
             break;
+
+        if (world_is_win(&world, 1, 2)) {
+
+            if (world.frames % 2 == 0)
+                mvaddstr(3, 0, "Game over! X wins. Press any key to exit!");
+            else
+                mvaddstr(3, 0, "Game over! O wins. Press any key to exit!");
+
+            world.active = 1;
         }
 
-        if (world.frames > 15) {
+        if (world.stevec2DTabele >= WORLD_ST_VRSTIC * WORLD_ST_STOLPCEV) {
+            mvaddstr(3, 0, "Game over! No one won the game. Press any key to exit");
             world.active = 1;
         }
 
@@ -129,14 +139,14 @@ void terminal_spuscanje_zetona(Terminal_input* input, World* world) {
 
         int zaVnest = (world->frames % 2) ? 1 : 2;
 
-        int x = input->stStolpca;
-        int y = WORLD_ST_VRSTIC - (world->counterjiStolpcev[x]);
+        int x = WORLD_ST_VRSTIC - (world->counterjiStolpcev[input->stStolpca]);
+        int y = input->stStolpca;
 
         world->memo_tabela[x][y] = zaVnest;
 
-        char znak = (world->frames % 2) ? 'O' : 'X';
+        char znak = (world->frames % 2) ? 'X' : 'O';
 
-        Zeton zeton = zeton_new(input->stStolpca, WORLD_ST_VRSTIC - (world->counterjiStolpcev[input->stStolpca]), znak);
+        Zeton zeton = zeton_new(y, x, znak);
         world->zetoni[world->frames] = zeton; // dodelimo tabeli zetonov zeton
 
         world->frames++;
