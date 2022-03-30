@@ -33,7 +33,7 @@ Terminal_input terminal_input_new(int input) {
     return this;
 }
 
-Terminal_input terminal_get_input(World* world) {
+Terminal_input terminal_get_input(Plosca* plosca) {
     mvaddstr(0, 0, "Enter a number between 0 and 6 to add your piece:");
     int vnos = getch() - '0'; // read the players input
 
@@ -41,51 +41,51 @@ Terminal_input terminal_get_input(World* world) {
 
     mvaddch(0, 50, vnos + '0');
 
-    terminal_validate_input(input, world);
+    terminal_validate_input(input, plosca);
 
     return input;
 }
 
-void terminal_validate_input(Terminal_input input, World* world) {
+void terminal_validate_input(Terminal_input input, Plosca* plosca) {
     // to je za popucat napačne inpute (šele naslednjo iteracijo)
     move(10, 0); clrtoeol();
     move(4, 0); clrtoeol();
 
-    if (input.stStolpca >= 0 && input.stStolpca <= WORLD_ST_STOLPCEV - 1) {
-        world->memo_tabela[(WORLD_ST_STOLPCEV - world->counterjiStolpcev[input.stStolpca] - 1) * 7 + (input.stStolpca)];
-        terminal_spuscanje_zetona(&input, world);
+    if (input.stStolpca >= 0 && input.stStolpca <= PLOSCA_ST_STOLPCEV - 1) {
+        plosca->memo_tabela[(PLOSCA_ST_STOLPCEV - plosca->counterjiStolpcev[input.stStolpca] - 1) * 7 + (input.stStolpca)];
+        terminal_spuscanje_zetona(&input, plosca);
     }
 
-    if ((input.stStolpca < 0 || input.stStolpca >= WORLD_ST_STOLPCEV) && !world->active)
+    if ((input.stStolpca < 0 || input.stStolpca >= PLOSCA_ST_STOLPCEV) && !plosca->active)
         mvaddstr(10, 0, "Your input is invalid, please try again!");
 }
 
 int terminal_main(Terminal* terminal) {
-    World world = world_new();
+    Plosca plosca = plosca_new();
 
     while (1) {
-        terminal_draw_world(terminal, &world);
+        terminal_draw_plosca(terminal, &plosca);
 
-        if (world.active)
+        if (plosca.active)
             break;
 
-        if (world_is_win(&world, 1, 2)) {
+        if (plosca_is_win(&plosca, 1, 2)) {
 
-            if (world.frames % 2 == 0)
+            if (plosca.frames % 2 == 0)
                 mvaddstr(3, 0, "Game over! X wins. Press any key to exit!");
             else
                 mvaddstr(3, 0, "Game over! O wins. Press any key to exit!");
 
-            world.active = 1;
+            plosca.active = 1;
         }
 
-        if (world.stevec2DTabele >= WORLD_ST_VRSTIC * WORLD_ST_STOLPCEV) {
+        if (plosca.stevec2DTabele >= PLOSCA_ST_VRSTIC * PLOSCA_ST_STOLPCEV) {
             mvaddstr(3, 0, "Game over! No one won the game. Press any key to exit");
-            world.active = 1;
+            plosca.active = 1;
         }
 
-        //Terminal_input input = terminal_get_input(&world);
-        terminal_get_input(&world);
+        //Terminal_input input = terminal_get_input(&plosca);
+        terminal_get_input(&plosca);
     }
 
     if (utils_get_platform_number() == 0) {
@@ -97,22 +97,22 @@ int terminal_main(Terminal* terminal) {
     return 0;
 }
 
-void terminal_draw_world(Terminal* terminal, World* world) {
+void terminal_draw_plosca(Terminal* terminal, Plosca* plosca) {
     int maxY = terminal->maxY;
     int maxX = terminal->maxX;
 
     // Print out the help (to show you where the piece will drop)
     mvaddstr(maxY/ 2 - 5, 0, "The numbers below this line show you where your piece will drop!");
-    for (int x = 0; x < world->width; ++x) {
+    for (int x = 0; x < plosca->width; ++x) {
         mvaddch(maxY / 2 - 3, x + maxX / 2 - 2, x + '0');
     }
 
-    for (int y = 0; y < world->height; ++y) {
-        for (int x = 0; x < world->width; ++x) {
+    for (int y = 0; y < plosca->height; ++y) {
+        for (int x = 0; x < plosca->width; ++x) {
             int flag = 0;
 
-            for (int i = 0; i < WORLD_ST_ZETONOV; ++i) {
-                Zeton* z = &world->zetoni[i];
+            for (int i = 0; i < PLOSCA_ST_ZETONOV; ++i) {
+                Zeton* z = &plosca->zetoni[i];
                 if (!z->aktiven) {
                     break;
                 }
@@ -132,23 +132,23 @@ void terminal_draw_world(Terminal* terminal, World* world) {
     refresh();
 }
 
-void terminal_spuscanje_zetona(Terminal_input* input, World* world) {
-    if (world->counterjiStolpcev[input->stStolpca] < WORLD_ST_VRSTIC) {
-        world_popolnjenost_stolpcev(world, world->stolpci[input->stStolpca], world->counterjiStolpcev[input->stStolpca]++, input->stStolpca);
+void terminal_spuscanje_zetona(Terminal_input* input, Plosca* plosca) {
+    if (plosca->counterjiStolpcev[input->stStolpca] < PLOSCA_ST_VRSTIC) {
+        plosca_popolnjenost_stolpcev(plosca, plosca->stolpci[input->stStolpca], plosca->counterjiStolpcev[input->stStolpca]++, input->stStolpca);
 
-        int zaVnest = (world->frames % 2) ? 1 : 2;
+        int zaVnest = (plosca->frames % 2) ? 1 : 2;
 
-        int vrstica = WORLD_ST_VRSTIC - (world->counterjiStolpcev[input->stStolpca]);
+        int vrstica = PLOSCA_ST_VRSTIC - (plosca->counterjiStolpcev[input->stStolpca]);
         int stolpec = input->stStolpca;
 
-        world->memo_tabela[vrstica][stolpec] = zaVnest;
+        plosca->memo_tabela[vrstica][stolpec] = zaVnest;
 
-        char znak = (world->frames % 2) ? 'X' : 'O';
+        char znak = (plosca->frames % 2) ? 'X' : 'O';
 
         Zeton zeton = zeton_new(stolpec, vrstica, znak);
-        world->zetoni[world->frames] = zeton; // dodelimo tabeli zetonov zeton
+        plosca->zetoni[plosca->frames] = zeton; // dodelimo tabeli zetonov zeton
 
-        world->frames++;
+        plosca->frames++;
     } else {
         mvprintw(4, 0, "Column %d is already full! Please choose another one.", input->stStolpca);
     }

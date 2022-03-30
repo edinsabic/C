@@ -8,7 +8,7 @@
 #include <curses.h>
 #include <stdlib.h>
 
-#include "World.h"
+#include "Plosca.h"
 #include "utils.h"
 
 typedef struct Terminal {
@@ -22,11 +22,11 @@ typedef struct Terminal_input {
 
 void terminal_init(Terminal* terminal);
 Terminal terminal_new(int y, int x);
-Terminal_input terminal_get_input(World* world);
+Terminal_input terminal_get_input(Plosca* plosca);
 Terminal_input terminal_input_new(int input);
-void terminal_validate_input(Terminal_input input, World* world);
-void terminal_draw_world(Terminal* terminal, World* world);
+void terminal_validate_input(Terminal_input input, Plosca* plosca);
+void terminal_draw_plosca(Terminal* terminal, Plosca* plosca);
 int terminal_main(Terminal* terminal);
-void terminal_spuscanje_zetona(Terminal_input* input, World* world);
+void terminal_spuscanje_zetona(Terminal_input* input, Plosca* plosca);
 
 #endif //GITHUB_TERMINAL_H

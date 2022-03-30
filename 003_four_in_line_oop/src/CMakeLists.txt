@@ -9,8 +9,8 @@ add_executable(003_four_in_line_oop
         app/terminal.h
         domain/Zeton.c
         domain/Zeton.h
-        domain/World.c
-        domain/World.h
+        domain/Plosca.c
+        domain/Plosca.h
         domain/utils.c
         domain/utils.h
         main.c)
