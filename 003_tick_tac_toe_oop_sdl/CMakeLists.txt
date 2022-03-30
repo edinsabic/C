@@ -11,14 +11,14 @@ include_directories(src/app)
 include_directories(src/domain)
 
 add_executable(003_tick_tac_toe_oop_sdl
-        # src/app/terminal.c
-        # src/app/terminal.h
-        # src/domain/Zeton.c
-        # src/domain/Zeton.h
-        # src/domain/World.c
-        # src/domain/World.h
-        # src/domain/utils.c
-        # src/domain/utils.h
+        src/app/Window.c
+        src/app/Window.h
+        src/domain/Token.c
+        src/domain/Token.h
+        src/domain/Color.c
+        src/domain/Color.h
+        src/domain/Board.c
+        src/domain/Board.h
         src/main.c)
 
 target_link_libraries(003_tick_tac_toe_oop_sdl ${SDL2_LIBRARIES})
