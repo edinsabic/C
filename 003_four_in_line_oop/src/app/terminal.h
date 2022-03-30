@@ -7,6 +7,7 @@
 
 #include <curses.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "Plosca.h"
 #include "utils.h"

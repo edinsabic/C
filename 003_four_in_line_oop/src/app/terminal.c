@@ -76,12 +76,12 @@ int terminal_main(Terminal* terminal) {
             else
                 mvaddstr(3, 0, "Game over! O wins. Press any key to exit!");
 
-            plosca.active = 1;
+            plosca.active = true;
         }
 
         if (plosca.stevec2DTabele >= PLOSCA_ST_VRSTIC * PLOSCA_ST_STOLPCEV) {
             mvaddstr(3, 0, "Game over! No one won the game. Press any key to exit");
-            plosca.active = 1;
+            plosca.active = true;
         }
 
         //Terminal_input input = terminal_get_input(&plosca);
@@ -113,7 +113,7 @@ void terminal_draw_plosca(Terminal* terminal, Plosca* plosca) {
 
             for (int i = 0; i < PLOSCA_ST_ZETONOV; ++i) {
                 Zeton* z = &plosca->zetoni[i];
-                if (!z->aktiven) {
+                if (!z->porabljen) {
                     break;
                 }
                 if (z->y == y && z->x == x) {
@@ -134,7 +134,7 @@ void terminal_draw_plosca(Terminal* terminal, Plosca* plosca) {
 
 void terminal_spuscanje_zetona(Terminal_input* input, Plosca* plosca) {
     if (plosca->counterjiStolpcev[input->stStolpca] < PLOSCA_ST_VRSTIC) {
-        plosca_popolnjenost_stolpcev(plosca, plosca->stolpci[input->stStolpca], plosca->counterjiStolpcev[input->stStolpca]++, input->stStolpca);
+        plosca_popolnjenost_stolpcev(plosca, plosca->stolpci[input->stStolpca], plosca->counterjiStolpcev[input->stStolpca]++);
 
         int zaVnest = (plosca->frames % 2) ? 1 : 2;
 

@@ -3,6 +3,7 @@
 //
 
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "app/terminal.h"
 

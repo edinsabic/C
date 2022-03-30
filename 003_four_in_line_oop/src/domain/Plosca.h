@@ -15,7 +15,7 @@ typedef struct Plosca {
     int height;
     int width;
     Zeton zetoni[PLOSCA_ST_ZETONOV];
-    int active; // ali je terminal ziv ali mrtev (igre konc al ne)
+    bool active;
     int frames; // kdo bo na vrsti (omejen z PLOSCA_ST_ZETONOV)
     int stevec2DTabele;
     int memo_tabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV];
@@ -25,11 +25,11 @@ typedef struct Plosca {
 
 Plosca plosca_new();
 
-void plosca_popolnjenost_stolpcev(Plosca* plosca, int* tabela, int stolpecCounter, int vrstica);
-int plosca_is_win(Plosca* plosca, int one, int two);
-int plosca_check_vertical(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
-int plosca_check_horizontal(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
-int plosca_check_diagonal_2(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
-int plosca_check_diagonal_1(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
+void plosca_popolnjenost_stolpcev(Plosca* plosca, int* tabela, int stolpecCounter);
+bool plosca_is_win(Plosca* plosca, int one, int two);
+bool plosca_check_vertical(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
+bool plosca_check_horizontal(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
+bool plosca_check_diagonal_2(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
+bool plosca_check_diagonal_1(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
 
 #endif //INSTRUKCIJE_D001_PLOSCA_H
