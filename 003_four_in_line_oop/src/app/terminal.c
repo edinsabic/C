@@ -134,7 +134,9 @@ void terminal_draw_plosca(Terminal* terminal, Plosca* plosca) {
 
 void terminal_spuscanje_zetona(Terminal_input* input, Plosca* plosca) {
     if (plosca->counterjiStolpcev[input->stStolpca] < PLOSCA_ST_VRSTIC) {
-        plosca_popolnjenost_stolpcev(plosca, plosca->stolpci[input->stStolpca], plosca->counterjiStolpcev[input->stStolpca]++);
+
+        // popolnjenost stolpcev
+        plosca->stolpci[input->stStolpca][plosca->counterjiStolpcev[input->stStolpca]] = plosca->counterjiStolpcev[input->stStolpca]++;
 
         int zaVnest = (plosca->frames % 2) ? 1 : 2;
 

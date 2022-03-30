@@ -38,12 +38,6 @@ Plosca plosca_new() { // ker imamo fixno dolzino ne rabimo parametrov
     return this;
 }
 
-void plosca_popolnjenost_stolpcev(Plosca* plosca, int* tabela, int stolpecCounter) {
-    tabela[stolpecCounter] = (plosca->frames % 2 == 0) ? 1 : 2;
-
-    plosca->stevec2DTabele++;
-}
-
 bool plosca_check_vertical___(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_STOLPCEV; i++){
         if ((plosca->memo_tabela[0][i] == num && plosca->memo_tabela[1][i] == num && plosca->memo_tabela[2][i] == num && plosca->memo_tabela[3][i] == num))

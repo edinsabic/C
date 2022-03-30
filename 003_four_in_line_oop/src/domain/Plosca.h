@@ -25,7 +25,6 @@ typedef struct Plosca {
 
 Plosca plosca_new();
 
-void plosca_popolnjenost_stolpcev(Plosca* plosca, int* tabela, int stolpecCounter);
 bool plosca_is_win(Plosca* plosca);
 // These 4 private functions have ___ at the end
 bool plosca_check_vertical___(Plosca* plosca, int num);
