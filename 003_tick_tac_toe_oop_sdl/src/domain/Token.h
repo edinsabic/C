@@ -1,7 +1,9 @@
 #ifndef _DOMAIN_TOKEN
 #define _DOMAIN_TOKEN
 
-enum Token_type {TOKEN_CIRCLE, TOKEN_CROSS, TOKEN_NULL};
+#include "Color.h"
+
+typedef enum Token_type {TOKEN_CIRCLE, TOKEN_CROSS, TOKEN_NULL} Token_type;
 
 typedef struct Token {
 	int x;
