@@ -26,10 +26,11 @@ typedef struct Plosca {
 Plosca plosca_new();
 
 void plosca_popolnjenost_stolpcev(Plosca* plosca, int* tabela, int stolpecCounter);
-bool plosca_is_win(Plosca* plosca, int one, int two);
-bool plosca_check_vertical(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
-bool plosca_check_horizontal(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
-bool plosca_check_diagonal_2(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
-bool plosca_check_diagonal_1(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one);
+bool plosca_is_win(Plosca* plosca);
+// These 4 private functions have ___ at the end
+bool plosca_check_vertical___(Plosca* plosca, int num);
+bool plosca_check_horizontal___(Plosca* plosca, int num);
+bool plosca_check_diagonal_1___(Plosca* plosca, int num);
+bool plosca_check_diagonal_2___(Plosca* plosca, int num);
 
 #endif //INSTRUKCIJE_D001_PLOSCA_H

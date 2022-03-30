@@ -69,7 +69,7 @@ int terminal_main(Terminal* terminal) {
         if (plosca.active)
             break;
 
-        if (plosca_is_win(&plosca, 1, 2)) {
+        if (plosca_is_win(&plosca)) {
 
             if (plosca.frames % 2 == 0)
                 mvaddstr(3, 0, "Game over! X wins. Press any key to exit!");

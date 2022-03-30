@@ -44,38 +44,38 @@ void plosca_popolnjenost_stolpcev(Plosca* plosca, int* tabela, int stolpecCounte
     plosca->stevec2DTabele++;
 }
 
-bool plosca_check_vertical(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one) {
+bool plosca_check_vertical___(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_STOLPCEV; i++){
-        if ((dvaDTabela[0][i] == one && dvaDTabela[1][i] == one && dvaDTabela[2][i] == one && dvaDTabela[3][i] == one))
+        if ((plosca->memo_tabela[0][i] == num && plosca->memo_tabela[1][i] == num && plosca->memo_tabela[2][i] == num && plosca->memo_tabela[3][i] == num))
             return true;
-        if ((dvaDTabela[1][i] == one && dvaDTabela[2][i] == one && dvaDTabela[3][i] == one && dvaDTabela[4][i] == one))
+        if ((plosca->memo_tabela[1][i] == num && plosca->memo_tabela[2][i] == num && plosca->memo_tabela[3][i] == num && plosca->memo_tabela[4][i] == num))
             return true;
-        if ((dvaDTabela[2][i] == one && dvaDTabela[3][i] == one && dvaDTabela[4][i] == one && dvaDTabela[5][i] == one))
+        if ((plosca->memo_tabela[2][i] == num && plosca->memo_tabela[3][i] == num && plosca->memo_tabela[4][i] == num && plosca->memo_tabela[5][i] == num))
             return true;
     }
 
     return false;
 }
 
-bool plosca_check_horizontal(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one) {
+bool plosca_check_horizontal___(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_VRSTIC; i++) {
-        if ((dvaDTabela[i][0] == one && dvaDTabela[i][1] == one && dvaDTabela[i][2] == one && dvaDTabela[i][3] == one))
+        if ((plosca->memo_tabela[i][0] == num && plosca->memo_tabela[i][1] == num && plosca->memo_tabela[i][2] == num && plosca->memo_tabela[i][3] == num))
             return true;
-        if ((dvaDTabela[i][1] == one && dvaDTabela[i][2] == one && dvaDTabela[i][3] == one && dvaDTabela[i][4] == one))
+        if ((plosca->memo_tabela[i][1] == num && plosca->memo_tabela[i][2] == num && plosca->memo_tabela[i][3] == num && plosca->memo_tabela[i][4] == num))
             return true;
-        if ((dvaDTabela[i][2] == one && dvaDTabela[i][3] == one && dvaDTabela[i][4] == one && dvaDTabela[i][5] == one))
+        if ((plosca->memo_tabela[i][2] == num && plosca->memo_tabela[i][3] == num && plosca->memo_tabela[i][4] == num && plosca->memo_tabela[i][5] == num))
             return true;
-        if ((dvaDTabela[i][3] == one && dvaDTabela[i][4] == one && dvaDTabela[i][5] == one && dvaDTabela[i][6] == one))
+        if ((plosca->memo_tabela[i][3] == num && plosca->memo_tabela[i][4] == num && plosca->memo_tabela[i][5] == num && plosca->memo_tabela[i][6] == num))
             return true;
     }
     return false;
 }
 
-bool plosca_check_diagonal_1(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one) {
+bool plosca_check_diagonal_1___(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_VRSTIC; i++) {
         for (int j = 0; j < PLOSCA_ST_STOLPCEV; j++) {
             if (i < PLOSCA_ST_VRSTIC - 3 && j < PLOSCA_ST_STOLPCEV - 3) {
-                if ((dvaDTabela[i][j] == one && dvaDTabela[i+1][j+1] == one && dvaDTabela[i+2][j+2] == one && dvaDTabela[i+3][j+3] == one))
+                if ((plosca->memo_tabela[i][j] == num && plosca->memo_tabela[i+1][j+1] == num && plosca->memo_tabela[i+2][j+2] == num && plosca->memo_tabela[i+3][j+3] == num))
                     return true;
             }
         }
@@ -83,11 +83,11 @@ bool plosca_check_diagonal_1(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV
     return false;
 }
 
-bool plosca_check_diagonal_2(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV], int one) {
+bool plosca_check_diagonal_2___(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_VRSTIC; i++) {
         for (int j = 0; j < PLOSCA_ST_STOLPCEV; j++) {
             if (i < PLOSCA_ST_VRSTIC - 3 && j > PLOSCA_ST_STOLPCEV - 5) {
-                if ((dvaDTabela[i][j] == one && dvaDTabela[i+1][j-1] == one && dvaDTabela[i+2][j-2] == one && dvaDTabela[i+3][j-3] == one))
+                if ((plosca->memo_tabela[i][j] == num && plosca->memo_tabela[i+1][j-1] == num && plosca->memo_tabela[i+2][j-2] == num && plosca->memo_tabela[i+3][j-3] == num))
                     return true;
             }
         }
@@ -95,14 +95,16 @@ bool plosca_check_diagonal_2(int dvaDTabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV
     return false;
 }
 
-bool plosca_is_win(Plosca* plosca, int one, int two) {
-    if (plosca_check_vertical(plosca->memo_tabela, one) || plosca_check_vertical(plosca->memo_tabela, two))
-        return true;
-    if (plosca_check_horizontal(plosca->memo_tabela, one) || plosca_check_horizontal(plosca->memo_tabela, two))
-        return true;
-    if (plosca_check_diagonal_1(plosca->memo_tabela, one) || plosca_check_diagonal_1(plosca->memo_tabela, two))
-        return true;
-    if (plosca_check_diagonal_2(plosca->memo_tabela, one) || plosca_check_diagonal_2(plosca->memo_tabela, two))
-        return true;
+bool plosca_is_win(Plosca* plosca) {
+    for (int i = 1; i <= 2; i++) {
+        if (plosca_check_vertical___(plosca, i))
+            return true;
+        if (plosca_check_horizontal___(plosca, i))
+            return true;
+        if (plosca_check_diagonal_1___(plosca, i))
+            return true;
+        if (plosca_check_diagonal_2___(plosca, i))
+            return true;
+    }
     return false;
 }
