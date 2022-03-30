@@ -52,7 +52,6 @@ void terminal_validate_input(Terminal_input input, Plosca* plosca) {
     move(4, 0); clrtoeol();
 
     if (input.stStolpca >= 0 && input.stStolpca <= PLOSCA_ST_STOLPCEV - 1) {
-        plosca->memo_tabela[(PLOSCA_ST_STOLPCEV - plosca->counterjiStolpcev[input.stStolpca] - 1) * 7 + (input.stStolpca)];
         terminal_spuscanje_zetona(&input, plosca);
     }
 
@@ -79,10 +78,12 @@ int terminal_main(Terminal* terminal) {
             plosca.active = true;
         }
 
+        /* Go through zetoni array da vids ce je vec k 42 true droppanih
         if (plosca.stevec2DTabele >= PLOSCA_ST_VRSTIC * PLOSCA_ST_STOLPCEV) {
             mvaddstr(3, 0, "Game over! No one won the game. Press any key to exit");
             plosca.active = true;
         }
+         */
 
         //Terminal_input input = terminal_get_input(&plosca);
         terminal_get_input(&plosca);
@@ -133,21 +134,24 @@ void terminal_draw_plosca(Terminal* terminal, Plosca* plosca) {
 }
 
 void terminal_spuscanje_zetona(Terminal_input* input, Plosca* plosca) {
-    if (plosca->counterjiStolpcev[input->stStolpca] < PLOSCA_ST_VRSTIC) {
+    int idx_stolpca = input->stStolpca;
+
+    if (plosca->counterjiStolpcev[idx_stolpca] < PLOSCA_ST_VRSTIC) {
 
         // popolnjenost stolpcev
-        plosca->stolpci[input->stStolpca][plosca->counterjiStolpcev[input->stStolpca]] = plosca->counterjiStolpcev[input->stStolpca]++;
+        int idx_vrstice = plosca->counterjiStolpcev[idx_stolpca];
+        plosca->stolpci[idx_stolpca][idx_vrstice] = idx_vrstice;
+        plosca->counterjiStolpcev[idx_stolpca]++;
 
         int zaVnest = (plosca->frames % 2) ? 1 : 2;
 
-        int vrstica = PLOSCA_ST_VRSTIC - (plosca->counterjiStolpcev[input->stStolpca]);
-        int stolpec = input->stStolpca;
+        int vrstica = PLOSCA_ST_VRSTIC - (plosca->counterjiStolpcev[idx_stolpca]);
 
-        plosca->memo_tabela[vrstica][stolpec] = zaVnest;
+        plosca->memo_tabela[vrstica][idx_stolpca] = zaVnest;
 
         char znak = (plosca->frames % 2) ? 'X' : 'O';
 
-        Zeton zeton = zeton_new(stolpec, vrstica, znak);
+        Zeton zeton = zeton_new(idx_stolpca, vrstica, znak);
         plosca->zetoni[plosca->frames] = zeton; // dodelimo tabeli zetonov zeton
 
         plosca->frames++;

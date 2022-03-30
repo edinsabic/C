@@ -12,7 +12,6 @@ Plosca plosca_new() { // ker imamo fixno dolzino ne rabimo parametrov
         .width = PLOSCA_ST_STOLPCEV,
         .active = false,
         .frames = 0,
-        .stevec2DTabele = 0,
     };
 
     for (int i = 0; i < PLOSCA_ST_ZETONOV; i++) {

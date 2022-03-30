@@ -17,7 +17,6 @@ typedef struct Plosca {
     Zeton zetoni[PLOSCA_ST_ZETONOV];
     bool active;
     int frames; // kdo bo na vrsti (omejen z PLOSCA_ST_ZETONOV)
-    int stevec2DTabele;
     int memo_tabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV];
     int stolpci[PLOSCA_ST_STOLPCEV][PLOSCA_ST_VRSTIC];
     int counterjiStolpcev[PLOSCA_ST_STOLPCEV];
