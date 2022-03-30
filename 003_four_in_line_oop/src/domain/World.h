@@ -25,6 +25,6 @@ typedef struct World {
 
 World world_new();
 
-void world_popolnjenostStolpcev(World* world, int* tabela, int stolpecCounter, int vrstica);
+void world_popolnjenost_stolpcev(World* world, int* tabela, int stolpecCounter, int vrstica);
 
 #endif //INSTRUKCIJE_D001_WORLD_H

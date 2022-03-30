@@ -38,11 +38,9 @@ World world_new() { // ker imamo fixno dolzino ne rabimo parametrov
     return this;
 }
 
-void world_popolnjenostStolpcev(World* world, int* tabela, int stolpecCounter, int vrstica) {
+void world_popolnjenost_stolpcev(World* world, int* tabela, int stolpecCounter, int vrstica) {
     tabela[stolpecCounter] = (world->frames % 2 == 0) ? 1 : 2;
 
     world->memo_tabela[stolpecCounter][vrstica - 1] = (world->frames % 2 == 0) ? 1 : 2;
     world->stevec2DTabele++;
 }
-/*
- */
