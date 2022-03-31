@@ -3,7 +3,11 @@
 
 #include "Color.h"
 
-typedef enum Token_type { TOKEN_CIRCLE, TOKEN_CROSS, TOKEN_NULL } Token_type;
+typedef enum Token_type {
+  TOKEN_CIRCLE,
+  TOKEN_CROSS,
+  TOKEN_NULL
+} Token_type;
 
 typedef struct Token {
   int x;

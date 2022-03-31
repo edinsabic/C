@@ -14,7 +14,8 @@ Board board_new(int height, int width) {
 }
 
 void board_reset(Board* this) {
-  for (int i = 0; i < this->num_tokens; i++) this->tokens[i].type = TOKEN_NULL;
+  for (int i = 0; i < this->num_tokens; i++)
+    this->tokens[i].type = TOKEN_NULL;
   this->num_tokens = 0;
 }
 
@@ -26,16 +27,11 @@ Token_type board_player_won(Board* this) {
 
   for (int y = 0; y < this->height; y++) {
     Token* diagonal_right_token = board_get_token(this, y, y);
-    Token* diagonal_left_token =
-        board_get_token(this, (this->height - 1) - y, y);
-    if (!diagonal_right_token || diagonal_right_token->type == TOKEN_CIRCLE)
-      diagonal_right_cross_won = false;
-    if (!diagonal_right_token || diagonal_right_token->type == TOKEN_CROSS)
-      diagonal_right_circle_won = false;
-    if (!diagonal_left_token || diagonal_left_token->type == TOKEN_CIRCLE)
-      diagonal_left_cross_won = false;
-    if (!diagonal_left_token || diagonal_left_token->type == TOKEN_CROSS)
-      diagonal_left_circle_won = false;
+    Token* diagonal_left_token = board_get_token(this, (this->height - 1) - y, y);
+    if (!diagonal_right_token || diagonal_right_token->type == TOKEN_CIRCLE) diagonal_right_cross_won = false;
+    if (!diagonal_right_token || diagonal_right_token->type == TOKEN_CROSS) diagonal_right_circle_won = false;
+    if (!diagonal_left_token || diagonal_left_token->type == TOKEN_CIRCLE) diagonal_left_cross_won = false;
+    if (!diagonal_left_token || diagonal_left_token->type == TOKEN_CROSS) diagonal_left_circle_won = false;
 
     bool horizontal_cross_won = true;
     bool horizontal_circle_won = true;
@@ -45,14 +41,10 @@ Token_type board_player_won(Board* this) {
     for (int x = 0; x < this->width; x++) {
       Token* horizontal_token = board_get_token(this, x, y);
       Token* vertical_token = board_get_token(this, y, x);
-      if (!horizontal_token || horizontal_token->type == TOKEN_CIRCLE)
-        horizontal_cross_won = false;
-      if (!horizontal_token || horizontal_token->type == TOKEN_CROSS)
-        horizontal_circle_won = false;
-      if (!vertical_token || vertical_token->type == TOKEN_CIRCLE)
-        vertical_cross_won = false;
-      if (!vertical_token || vertical_token->type == TOKEN_CROSS)
-        vertical_circle_won = false;
+      if (!horizontal_token || horizontal_token->type == TOKEN_CIRCLE) horizontal_cross_won = false;
+      if (!horizontal_token || horizontal_token->type == TOKEN_CROSS) horizontal_circle_won = false;
+      if (!vertical_token || vertical_token->type == TOKEN_CIRCLE) vertical_cross_won = false;
+      if (!vertical_token || vertical_token->type == TOKEN_CROSS) vertical_circle_won = false;
     }
 
     if (horizontal_cross_won || vertical_cross_won) return TOKEN_CROSS;
@@ -60,13 +52,12 @@ Token_type board_player_won(Board* this) {
   }
 
   if (diagonal_left_cross_won || diagonal_right_cross_won) return TOKEN_CROSS;
-  if (diagonal_left_circle_won || diagonal_right_circle_won)
-    return TOKEN_CIRCLE;
+  if (diagonal_left_circle_won || diagonal_right_circle_won) return TOKEN_CIRCLE;
 
   return TOKEN_NULL;
 }
 
-bool board_full(Board* this){
+bool board_full(Board* this) {
   return this->num_tokens == this->width * this->height;
 }
 

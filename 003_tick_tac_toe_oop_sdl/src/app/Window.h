@@ -1,18 +1,18 @@
 
-#ifndef _APP_WINDOW 
+#ifndef _APP_WINDOW
 #define _APP_WINDOW
 
-#include <SDL.h>
-#include "Color.h"
 #include "Board.h"
+#include "Color.h"
+#include <SDL.h>
 
 typedef struct Window {
-    SDL_Window* instance;
-    SDL_Renderer* renderer;
-		int width;
-		int height;
-		Color* color_background;
-		Color* color_lines;
+  SDL_Window* instance;
+  SDL_Renderer* renderer;
+  int width;
+  int height;
+  Color* color_background;
+  Color* color_lines;
 } Window;
 
 Window window_new(int width, int height);

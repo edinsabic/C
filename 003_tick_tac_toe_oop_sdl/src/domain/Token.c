@@ -8,10 +8,10 @@ Token token_new(int x, int y, Token_type token_type) {
   if (token_type == TOKEN_CIRCLE) color = &COLOR_BLUE;
 
   Token this = {
-      .x = x,
-      .y = y,
-      .type = token_type,
-      .color = color,
+    .x = x,
+    .y = y,
+    .type = token_type,
+    .color = color,
   };
 
   return this;
@@ -19,10 +19,8 @@ Token token_new(int x, int y, Token_type token_type) {
 
 char* token_type_name(Token_type type) {
   switch (type) {
-    case TOKEN_CROSS:
-      return "cross";
-    case TOKEN_CIRCLE:
-      return "circle";
+    case TOKEN_CROSS: return "cross";
+    case TOKEN_CIRCLE: return "circle";
   }
   return "NULL";
 }
