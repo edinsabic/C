@@ -78,12 +78,10 @@ int terminal_main(Terminal* terminal) {
             plosca.active = true;
         }
 
-        /* Go through zetoni array da vids ce je vec k 42 true droppanih
         if (plosca.stevec2DTabele >= PLOSCA_ST_VRSTIC * PLOSCA_ST_STOLPCEV) {
             mvaddstr(3, 0, "Game over! No one won the game. Press any key to exit");
             plosca.active = true;
         }
-         */
 
         //Terminal_input input = terminal_get_input(&plosca);
         terminal_get_input(&plosca);
@@ -142,6 +140,8 @@ void terminal_spuscanje_zetona(Terminal_input* input, Plosca* plosca) {
         int idx_vrstice = plosca->counterjiStolpcev[idx_stolpca];
         plosca->stolpci[idx_stolpca][idx_vrstice] = idx_vrstice;
         plosca->counterjiStolpcev[idx_stolpca]++;
+
+        plosca->stevec2DTabele++;
 
         int zaVnest = (plosca->frames % 2) ? 1 : 2;
 

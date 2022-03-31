@@ -37,7 +37,7 @@ Plosca plosca_new() { // ker imamo fixno dolzino ne rabimo parametrov
     return this;
 }
 
-bool plosca_check_vertical___(Plosca* plosca, int num) {
+bool p_plosca_check_vertical(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_STOLPCEV; i++){
         if ((plosca->memo_tabela[0][i] == num && plosca->memo_tabela[1][i] == num && plosca->memo_tabela[2][i] == num && plosca->memo_tabela[3][i] == num))
             return true;
@@ -50,7 +50,7 @@ bool plosca_check_vertical___(Plosca* plosca, int num) {
     return false;
 }
 
-bool plosca_check_horizontal___(Plosca* plosca, int num) {
+bool p_plosca_check_horizontal(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_VRSTIC; i++) {
         if ((plosca->memo_tabela[i][0] == num && plosca->memo_tabela[i][1] == num && plosca->memo_tabela[i][2] == num && plosca->memo_tabela[i][3] == num))
             return true;
@@ -64,7 +64,7 @@ bool plosca_check_horizontal___(Plosca* plosca, int num) {
     return false;
 }
 
-bool plosca_check_diagonal_1___(Plosca* plosca, int num) {
+bool p_plosca_check_diagonal_1(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_VRSTIC; i++) {
         for (int j = 0; j < PLOSCA_ST_STOLPCEV; j++) {
             if (i < PLOSCA_ST_VRSTIC - 3 && j < PLOSCA_ST_STOLPCEV - 3) {
@@ -76,7 +76,7 @@ bool plosca_check_diagonal_1___(Plosca* plosca, int num) {
     return false;
 }
 
-bool plosca_check_diagonal_2___(Plosca* plosca, int num) {
+bool p_plosca_check_diagonal_2(Plosca* plosca, int num) {
     for (int i = 0; i < PLOSCA_ST_VRSTIC; i++) {
         for (int j = 0; j < PLOSCA_ST_STOLPCEV; j++) {
             if (i < PLOSCA_ST_VRSTIC - 3 && j > PLOSCA_ST_STOLPCEV - 5) {
@@ -90,13 +90,13 @@ bool plosca_check_diagonal_2___(Plosca* plosca, int num) {
 
 bool plosca_is_win(Plosca* plosca) {
     for (int i = 1; i <= 2; i++) {
-        if (plosca_check_vertical___(plosca, i))
+        if (p_plosca_check_vertical(plosca, i))
             return true;
-        if (plosca_check_horizontal___(plosca, i))
+        if (p_plosca_check_horizontal(plosca, i))
             return true;
-        if (plosca_check_diagonal_1___(plosca, i))
+        if (p_plosca_check_diagonal_1(plosca, i))
             return true;
-        if (plosca_check_diagonal_2___(plosca, i))
+        if (p_plosca_check_diagonal_2(plosca, i))
             return true;
     }
     return false;

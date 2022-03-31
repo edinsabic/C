@@ -16,6 +16,7 @@ typedef struct Plosca {
     int width;
     Zeton zetoni[PLOSCA_ST_ZETONOV];
     bool active;
+    int stevec2DTabele; // Za štetje koliko potez je do sedaj
     int frames; // kdo bo na vrsti (omejen z PLOSCA_ST_ZETONOV)
     int memo_tabela[PLOSCA_ST_VRSTIC][PLOSCA_ST_STOLPCEV];
     int stolpci[PLOSCA_ST_STOLPCEV][PLOSCA_ST_VRSTIC];
@@ -25,10 +26,10 @@ typedef struct Plosca {
 Plosca plosca_new();
 
 bool plosca_is_win(Plosca* plosca);
-// These 4 private functions have ___ at the end
-bool plosca_check_vertical___(Plosca* plosca, int num);
-bool plosca_check_horizontal___(Plosca* plosca, int num);
-bool plosca_check_diagonal_1___(Plosca* plosca, int num);
-bool plosca_check_diagonal_2___(Plosca* plosca, int num);
+// These 4 private functions have "p_" prepended
+bool p_plosca_check_vertical(Plosca* plosca, int num);
+bool p_plosca_check_horizontal(Plosca* plosca, int num);
+bool p_plosca_check_diagonal_1(Plosca* plosca, int num);
+bool p_plosca_check_diagonal_2(Plosca* plosca, int num);
 
 #endif //INSTRUKCIJE_D001_PLOSCA_H
