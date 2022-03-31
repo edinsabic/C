@@ -13,10 +13,9 @@ include_directories(src/domain)
 add_executable(003_tick_tac_toe_oop_sdl
         src/app/Window.c
         src/app/Window.h
+        src/app/Color.h
         src/domain/Token.c
         src/domain/Token.h
-        src/domain/Color.c
-        src/domain/Color.h
         src/domain/Board.c
         src/domain/Board.h
         src/main.c)
