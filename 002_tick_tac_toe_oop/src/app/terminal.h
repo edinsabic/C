@@ -11,7 +11,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "Plosca.h"
+#include "World.h"
 #include "utils.h"
 
 typedef struct Terminal {
