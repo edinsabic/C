@@ -6,10 +6,11 @@
 #include "Token.h"
 
 Board board_new(int height, int width) {
-  Board this;
-  this.height = height;
-  this.width = width;
-  this.num_tokens = 0;
+  Board this = {
+    .height = height,
+    .width = width,
+    .num_tokens = 0,
+  };
   return this;
 }
 

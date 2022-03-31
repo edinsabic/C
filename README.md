@@ -28,3 +28,9 @@ cd 003_tick_tac_toe_oop_sdl
 cd dist64
 ./003_tick_tac_toe_oop_sdl.exe
 ```
+
+## Clang style
+
+```
+{BasedOnStyle: WebKit, IndentCaseLabels: true, BreakBeforeBraces: Custom, AllowShortEnumsOnASingleLine: true, AllowShortCaseLabelsOnASingleLine: true,  AllowShortLoopsOnASingleLine: true, BraceWrapping: { AfterFunction: false}, AllowShortIfStatementsOnASingleLine: true, IndentWidth: 2, ColumnLimit: 0, Cpp11BracedListStyle: false, PointerAlignment: Left}"
+```

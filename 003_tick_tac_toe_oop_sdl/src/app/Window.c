@@ -93,12 +93,8 @@ void _window_draw(Window* this, Board* board) {
     // TODO: c = token.color;
     // TODO: SDL_SetRenderDrawColor(this->renderer, c->r, c->g, c->b, SDL_ALPHA_OPAQUE);
     switch (token.type) {
-      case TOKEN_CIRCLE:
-        _window_render_circle(this, dx * token.x + dx / 2, dy * token.y + dy / 2, DX);
-        break;
-      case TOKEN_CROSS:
-        _window_render_cross(this, dx * token.x + dx / 2, dy * token.y + dy / 2, DX);
-        break;
+      case TOKEN_CIRCLE: _window_render_circle(this, dx * token.x + dx / 2, dy * token.y + dy / 2, DX); break;
+      case TOKEN_CROSS: _window_render_cross(this, dx * token.x + dx / 2, dy * token.y + dy / 2, DX); break;
     }
   }
 
