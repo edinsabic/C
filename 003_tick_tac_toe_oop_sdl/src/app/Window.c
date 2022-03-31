@@ -31,10 +31,9 @@ void window_main(Window *this) {
   Board board = board_new(3, 3);
 
   while (true) {
-    _window_draw(this, &board);
     _window_process_events(this, &board);
+    _window_draw(this, &board);
     if (board_full(&board)) {
-      _window_draw(this, &board);
       SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "GAME WON",
                                "Nobody won :(", this->instance);
       board_reset(&board);
@@ -56,7 +55,6 @@ void _window_process_events(Window *this, Board *board) {
           char buffer[1024];
           snprintf(buffer, sizeof(buffer), "Player %s won!",
                    token_type_name(token_type));
-
           _window_draw(this, board);
           SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "GAME WON",
                                    buffer, this->instance);
