@@ -5,11 +5,13 @@
 #ifndef INSTRUKCIJE_D001_ZETON_H
 #define INSTRUKCIJE_D001_ZETON_H
 
+#include <stdbool.h>
+
 typedef struct Zeton {
     int x;
     int y;
     char barva;
-    int aktiven;
+    bool porabljen;
 } Zeton;
 
 Zeton zeton_new(int x, int y, char barva);

@@ -10,7 +10,7 @@ Zeton zeton_new(int x, int y, char barva) {
     this.x = x;
     this.y = y;
     this.barva = barva;
-    this.aktiven = 1;
+    this.porabljen = true;
 
     return this;
 }
