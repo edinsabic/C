@@ -113,9 +113,7 @@ int main() {
 	int yMax, xMax, stVrstic = 6, stStolpcev = 7;
 	getmaxyx(stdscr, yMax, xMax);
 
-	WINDOW** polja = (WINDOW**) malloc((stStolpcev * stStolpcev) * sizeof(WINDOW*));
-
-	int our2Darray[stVrstic][stStolpcev];
+	WINDOW** polja = (WINDOW**) malloc((stVrstic * stStolpcev) * sizeof(WINDOW*));
 
 	int** dvaDTabela = (int**)calloc(sizeof(int*), stVrstic);
     for (int i = 0; i < stVrstic; i++)
