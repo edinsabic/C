@@ -13,10 +13,24 @@
   
   <br>
    
-## Compile and run
+## Compile and run (linux, ncurses)
 ```
 cd <game>
 gcc -v -o main.exe main.c -lncurses
 ./main.exe
 
+```
+
+## Create exe distribution for 32 and 64 (windows)
+```
+cd 003_tick_tac_toe_oop_sdl
+./make.bat
+cd dist64
+./003_tick_tac_toe_oop_sdl.exe
+```
+
+## Clang style
+
+```
+{BasedOnStyle: WebKit, IndentCaseLabels: true, BreakBeforeBraces: Custom, AllowShortEnumsOnASingleLine: true, AllowShortCaseLabelsOnASingleLine: true,  AllowShortLoopsOnASingleLine: true, BraceWrapping: { AfterFunction: false}, AllowShortIfStatementsOnASingleLine: true, IndentWidth: 2, ColumnLimit: 0, Cpp11BracedListStyle: false, PointerAlignment: Left}"
 ```
