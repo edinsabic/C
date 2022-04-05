@@ -26,7 +26,7 @@ void window_init(Window* this, const char* title) {
 }
 
 void window_main(Window* this) {
-  Board board = board_new(); // spremeni po svoje
+  Board board = board_new(this->width, this->height); // spremeni po svoje
 
   while (true) {
     _window_process_events(this, &board);
@@ -59,6 +59,33 @@ void _window_draw(Window* this, Board* board) {
   SDL_RenderClear(this->renderer); // pobrise celotn zaslon
 
   // na podlagi boarda narisi (for zanke, tokni, ...)
+  SDL_Rect p1 = {
+    .x = board->paddles[0].x,
+    .y = board->paddles[0].y,
+    .w = board->paddles[0].width,
+    .h = board->paddles[0].height,
+  };
+
+  SDL_Rect p2 = {
+    .x = board->paddles[1].x,
+    .y = board->paddles[1].y,
+    .w = board->paddles[1].width,
+    .h = board->paddles[1].height,
+  };
+
+  SDL_Rect b = {
+    .x = board->ball.x,
+    .y = board->ball.y,
+    .w = board->ball.width,
+    .h = board->ball.height,
+  };
+
+  SDL_SetRenderDrawColor(this->renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+  SDL_RenderDrawRect(this->renderer, &p1);
+
+  SDL_RenderDrawRect(this->renderer, &p2);
+
+  SDL_RenderDrawRect(this->renderer, &b);
 
   SDL_RenderPresent(this->renderer);
 }

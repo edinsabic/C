@@ -9,4 +9,4 @@ xcopy build\Debug\* dist64\
 xcopy build\Debug\* dist32\
 echo F|xcopy ..\libs\SDL2\lib\x64\SDL2.dll dist64\SDL2.dll
 echo F|xcopy ..\libs\SDL2\lib\x86\SDL2.dll dist32\SDL2.dll
-.\dist64\003_tick_tac_toe_oop_sdl.exe
+.\dist64\004_ping_pong.exe

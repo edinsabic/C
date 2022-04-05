@@ -2,22 +2,19 @@
 #ifndef _DOMAIN_BOARD
 #define _DOMAIN_BOARD
 
-#include <stdbool.h>
+#define BOARD_NUM_OF_PADDLES 2
 
-#include "Token.h"
+#include <stdbool.h>
+#include "Paddle.h"
+#include "Ball.h"
 
 typedef struct Board {
   int width;
   int height;
-  Token tokens[100];
-  int num_tokens;
+  Paddle paddles[BOARD_NUM_OF_PADDLES];
+  Ball ball;
 } Board;
 
-Board board_new(int height, int width);
-void board_reset(Board* this);
-bool board_full(Board* this);
-Token_type board_player_won(Board* this);
-void board_add_token(Board* this, int x, int y);
-Token* board_get_token(Board* this, int x, int y);
+Board board_new(int width, int height);
 
 #endif

@@ -14,8 +14,12 @@ add_executable(004_ping_pong
         src/app/Window.c
         src/app/Window.h
         src/app/Color.h
+        src/domain/Ball.c
+        src/domain/Ball.h
         src/domain/Board.c
         src/domain/Board.h
+        src/domain/Paddle.c
+        src/domain/Paddle.h
         src/main.c)
 
 target_link_libraries(004_ping_pong ${SDL2_LIBRARIES})
