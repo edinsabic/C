@@ -21,6 +21,7 @@ void window_init(Window* this, const char* title);
 void window_close(Window* this);
 
 void _window_draw(Window* this, Board* board);
+void _window_key_click(Window* this, Board* board, SDL_Event event, int direction);
 void _window_on_mouse_click(Window* this, Board* board, SDL_Event event);
 void _window_process_events(Window* this, Board* board);
 

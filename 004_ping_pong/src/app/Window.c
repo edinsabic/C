@@ -42,10 +42,37 @@ void _window_process_events(Window* this, Board* board) {
             case SDL_QUIT:
                 window_close(this);
 
+            // Tega ne bom uporabljal, leave for now
             case SDL_MOUSEBUTTONDOWN:
                 _window_on_mouse_click(this, board, event);
+
+            case SDL_KEYDOWN:
+                // Handle arrow keys
+                switch(event.key.keysym.scancode) {
+                    case SDL_SCANCODE_W:
+                        _window_key_click(this, board, event, 0);
+                        break;
+                    case SDL_SCANCODE_S:
+                        _window_key_click(this, board, event, 1);
+                        break;
+                    case SDL_SCANCODE_UP:
+                        _window_key_click(this, board, event, 2);
+                        break;
+                    case SDL_SCANCODE_DOWN:
+                        _window_key_click(this, board, event, 3);
+                        break;
+                    default:
+                        break;
+                }
+                
         }
     }
+}
+
+void _window_key_click(Window* this, Board* board, SDL_Event event, int direction) {
+    SDL_KeyboardEvent e = event.key;
+    
+    board_move_paddle(board, direction);
 }
 
 void _window_on_mouse_click(Window* this, Board* board, SDL_Event event) {

@@ -31,3 +31,14 @@ Board board_new(int width, int height) {
     
     return this;
 }
+
+void board_move_paddle(Board* board, int direction) {
+    if (direction == 0)
+        board->paddles[0].y -= 10;
+    if (direction == 1)
+        board->paddles[0].y += 10;
+    if (direction == 2)
+        board->paddles[1].y -= 10;
+    if (direction == 3)
+        board->paddles[1].y += 10;
+}

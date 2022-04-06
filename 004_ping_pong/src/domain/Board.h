@@ -20,5 +20,6 @@ typedef struct Board {
 } Board;
 
 Board board_new(int width, int height);
+void board_move_paddle(Board* board, int direction);
 
 #endif
