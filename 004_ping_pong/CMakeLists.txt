@@ -14,6 +14,8 @@ add_executable(004_ping_pong
         src/app/Window.c
         src/app/Window.h
         src/app/Color.h
+        src/domain/Table.c
+        src/domain/Table.h
         src/domain/Ball.c
         src/domain/Ball.h
         src/domain/Board.c

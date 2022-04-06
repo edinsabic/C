@@ -9,6 +9,6 @@ typedef struct Paddle {
 	int width;
 } Paddle;
 
-Paddle paddle_new(int x, int y, int height, int width);
+Paddle paddle_new(int x, int y, int width, int height);
 
 #endif
