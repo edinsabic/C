@@ -1,3 +1,4 @@
+
 #ifndef _DOMAIN_TABLE
 
 #define _DOMAIN_TABLE

@@ -8,11 +8,13 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Table.h"
+#include "Net.h"
 
 typedef struct Board {
     int width;
     int height;
     Table table;
+    Net net;
     Paddle paddles[BOARD_NUM_OF_PADDLES];
     Ball ball;
 } Board;

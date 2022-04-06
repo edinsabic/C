@@ -1,3 +1,4 @@
+
 #ifndef _DOMAIN_BALL
 
 #define _DOMAIN_BALL

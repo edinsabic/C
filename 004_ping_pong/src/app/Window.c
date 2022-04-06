@@ -67,6 +67,13 @@ void _window_draw(Window* this, Board* board) {
         .h = board->table.height,
     };
 
+    SDL_Rect n = {
+        .x = board->net.x,
+        .y = board->net.y,
+        .w = board->net.width,
+        .h = board->net.height,
+    };
+
     SDL_Rect p1 = {
         .x = board->paddles[0].x,
         .y = board->paddles[0].y,
@@ -91,6 +98,7 @@ void _window_draw(Window* this, Board* board) {
     SDL_SetRenderDrawColor(this->renderer, 0, 255, 255, SDL_ALPHA_OPAQUE);
 
     SDL_RenderDrawRect(this->renderer, &t);
+    SDL_RenderDrawRect(this->renderer, &n);
     SDL_RenderDrawRect(this->renderer, &p1);
     SDL_RenderDrawRect(this->renderer, &p2);
     SDL_RenderDrawRect(this->renderer, &b);

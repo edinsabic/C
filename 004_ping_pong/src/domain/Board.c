@@ -8,7 +8,15 @@ Board board_new(int width, int height) {
         .height = height,
     };
 
+    int a = width / 2;
+    int b = height / 2;
+
+    int xZ = width / 20; // sirina zoge
+    int bZ = height / 20;// tankost zoge
+
     this.table = table_new(4, height / 8, width - 10, (height - 5) - (height / 4));
+
+    this.net = net_new(a, height / 8, 1, width - (width/4) - 5, bZ);
 
     int x = width / 15;
     int y = height / 2;
@@ -19,13 +27,7 @@ Board board_new(int width, int height) {
     this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP);
     this.paddles[1] = paddle_new(width - x, height - y - (yP / 2), xP , yP);
 
-    int a = width / 2;
-    int b = height / 2;
-
-    int xZ = width / 20; // sirina zoge
-    int bZ = height / 20;// tankost zoge
-
-    this.ball = ball_new(a - (xZ/2), b - (bZ/2), xZ, bZ);
+    this.ball = ball_new(x + 10, b - (bZ / 2), xZ, bZ);
     
     return this;
 }
