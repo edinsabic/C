@@ -33,12 +33,14 @@ Board board_new(int width, int height) {
 }
 
 void board_move_paddle(Board* board, int direction) {
-    if (direction == 0)
-        board->paddles[0].y -= 10;
-    if (direction == 1)
-        board->paddles[0].y += 10;
-    if (direction == 2)
-        board->paddles[1].y -= 10;
-    if (direction == 3)
-        board->paddles[1].y += 10;
+    // '/' določi kateri paddle se bo premaknil (L/R), '%' pa kam, gor/dol (-/+)
+    if (direction < 4) {
+        board->paddles[direction / 2].y += (((direction % 2 == 0) ? -1 : 1) * 10);
+    }
+}
+
+void board_move_ball(Board* board, int direction) {
+    if (direction == 4) {
+        board->ball.x += 10;
+    }
 }

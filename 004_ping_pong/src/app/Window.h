@@ -7,12 +7,12 @@
 #include <SDL.h>
 
 typedef struct Window {
-  SDL_Window* instance;
-  SDL_Renderer* renderer;
-  int width;
-  int height;
-  Color* color_background;
-  Color* color_lines;
+    SDL_Window* instance;
+    SDL_Renderer* renderer;
+    int width;
+    int height;
+    Color* color_background;
+    Color* color_lines;
 } Window;
 
 Window window_new(int width, int height);

@@ -2,9 +2,9 @@
 #define _APP_COLOR
 
 typedef struct Color {
-  int r;
-  int g;
-  int b;
+    int r;
+    int g;
+    int b;
 } Color;
 
 static Color COLOR_RED = { .r = 255, .g = 0, .b = 0 };
