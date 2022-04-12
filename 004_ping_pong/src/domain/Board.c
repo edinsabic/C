@@ -1,4 +1,5 @@
 #include "Board.h"
+#include <stdio.h>
 
 // Board ti pove kok kvadratkov mas
 
@@ -39,8 +40,18 @@ void board_move_paddle(Board* board, int direction) {
     }
 }
 
-void board_move_ball(Board* board, int direction) {
-    if (direction == 4) {
-        board->ball.x += 10;
+void board_move_ball(Board* board, int currentTime, int* lastTime, int* smer) {
+    // vsakih 10 ms se premakne en frame desno
+
+    if (currentTime > *lastTime + 10) {
+        if (board->ball.x > (board->paddles[1].x - (board->width)/100 - 4 - 20)) {
+            // printf("Zadel smo desni paddle, zamenji vrednost tm kamor je shranjen smer na -1\n");
+            *smer = -1;
+        } else if (board->ball.x < board->paddles[0].x + board->paddles[0].width) {
+            *smer = 1;
+        }
+
+        board->ball.x = board->ball.x + (*smer * 3);
+        *lastTime = currentTime;
     }
 }

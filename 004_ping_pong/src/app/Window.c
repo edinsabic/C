@@ -28,19 +28,14 @@ void window_init(Window* this, const char* title) {
 void window_main(Window* this) {
     Board board = board_new(this->width, this->height); // spremeni po svoje
 
-    int lastTime = 0; 
-    int currentTime = 0;
+    int* lastTime = NULL;
+    int* smer = -1;
 
     while (true) {
         _window_process_events(this, &board);
         _window_draw(this, &board);
 
-        currentTime = SDL_GetTicks();
-
-        if (currentTime > lastTime + 10) {
-            board.ball.x += 1;
-            lastTime = currentTime;
-        }
+        board_move_ball(&board, SDL_GetTicks(), &lastTime, &smer);
 
         // 60 Hz osveževanje, nared mal delaya, da zaustavljaš program
     }
@@ -49,10 +44,7 @@ void window_main(Window* this) {
 void _window_process_events(Window* this, Board* board) {
     SDL_Event event;
 
-    while (SDL_PollEvent(&event)) {
-        // x += xVel * ( deltaTicks / 1000.f );
-        
-
+    while (SDL_PollEvent(&event)) {        
         switch (event.type) {
             case SDL_QUIT:
                 window_close(this);
