@@ -22,5 +22,7 @@ typedef struct Board {
 Board board_new(int width, int height);
 void board_move_paddle(Board* board, int direction);
 void board_move_ball(Board* board, int currentTime, int* lastTime, int* smer);
+int board_check_round_win(Board* board);
+void board_reset(Board* board, int winner);
 
 #endif

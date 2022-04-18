@@ -29,13 +29,21 @@ void window_main(Window* this) {
     Board board = board_new(this->width, this->height); // spremeni po svoje
 
     int* lastTime = NULL;
-    int* smer = -1;
+    // int* smer = -1; // zacel bo Desni
+    int* smer = 1; // zacel bo Levi
 
     while (true) {
         _window_process_events(this, &board);
         _window_draw(this, &board);
 
         board_move_ball(&board, SDL_GetTicks(), &lastTime, &smer);
+        int x = board_check_round_win(&board);
+
+        if (x == 0) { // Reset levo
+            board_reset(&board, 0);
+        } else if (x == 1) { // Reset desno
+            board_reset(&board, 1);
+        }
 
         // 60 Hz osveževanje, nared mal delaya, da zaustavljaš program
     }
@@ -103,7 +111,6 @@ void _window_draw(Window* this, Board* board) {
     SDL_SetRenderDrawColor(this->renderer, c->r, c->g, c->b, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(this->renderer); // pobrise celotn zaslon
 
-
     // na podlagi boarda narisi (for zanke, tokni, ...)
 
     SDL_Rect t = {
@@ -150,7 +157,7 @@ void _window_draw(Window* this, Board* board) {
     SDL_RenderDrawRect(this->renderer, &b);
 
     // Tale pika je za debugganje
-    // SDL_RenderDrawPoint(this->renderer, board->paddles[1].curXpos, board->paddles[1].curYtop);
+    // SDL_RenderDrawPoint(this->renderer, 10, 10);
 
     SDL_RenderPresent(this->renderer);
 }

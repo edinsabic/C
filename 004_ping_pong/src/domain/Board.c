@@ -28,9 +28,43 @@ Board board_new(int width, int height) {
     this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP, x + xP, y - (yP / 2), y - (yP / 2) + yP);
     this.paddles[1] = paddle_new(width - x, y - (yP / 2), xP, yP, width - x, y - (yP / 2), y - (yP / 2) + yP);
 
-    this.ball = ball_new(x + 10, b - (bZ / 2), xZ, bZ);
+    this.ball = ball_new(x + 10, b - (bZ / 2), xZ, bZ, x + 10, b - (bZ / 2) + xZ, b - (bZ / 2) + xZ);
     
     return this;
+}
+
+void board_reset(Board* board, int winner) {
+    if (winner == 0) { // Levi, dej žogo desno
+        board->ball.x = board->width - board->width / 15;
+    } else if (winner == 1) { // Desni, dej žogo desno
+        board->ball.x = board->width / 15;
+    }
+
+    int helper = (board->height / 2) - ((board->height / 5) / 2);
+
+    // Resetiraj Levi paddle
+    board->paddles[0].x = board->width / 15;
+    board->paddles[0].curXpos = board->width / 15;
+    board->paddles[0].y = helper;
+    board->paddles[0].curYtop = helper;
+    board->paddles[0].curYbot = helper + (board->height / 5);
+
+    // Resetiraj Desni paddle
+    board->paddles[1].x = board->width - board->width / 15;
+    board->paddles[1].curXpos = board->width - board->width / 15;
+    board->paddles[1].y = helper;
+    board->paddles[1].curYtop = helper;
+    board->paddles[1].curYbot = helper + (board->height / 5);
+}
+
+int board_check_round_win(Board* board) {
+    if (board->ball.x < board->table.x) {
+        // printf("Reset Levo\n");
+        return 0;
+    } else if (board->ball.x + board->ball.width > board->table.x + board->table.x + board->table.width) {
+        // printf("Reset Desno\n");
+        return 1;
+    }
 }
 
 void board_move_paddle(Board* board, int direction) {
@@ -72,7 +106,7 @@ void board_move_paddle(Board* board, int direction) {
 void board_move_ball(Board* board, int currentTime, int* lastTime, int* smer) {
     // vsakih 10 ms se premakne en frame desno
 
-    if (currentTime > *lastTime + 10) {
+    if (currentTime > *lastTime + 10) {        
         if (board->ball.x + board->ball.width > (board->paddles[1].curXpos)) {
             if (board->ball.y < board->paddles[1].curYbot && 
                 board->ball.y + board->ball.height > board->paddles[1].curYtop) {
@@ -86,7 +120,7 @@ void board_move_ball(Board* board, int currentTime, int* lastTime, int* smer) {
             }
         }
 
-        board->ball.x = board->ball.x + (*smer * 3);
+        board->ball.x += (*smer * 3);
         *lastTime = currentTime;
     }
 }
