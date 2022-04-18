@@ -25,8 +25,13 @@ Board board_new(int width, int height) {
     int xP = width / 100;// tankost paddla
     int yP = height / 5; // sirina paddla
 
-    this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP);
-    this.paddles[1] = paddle_new(width - x, height - y - (yP / 2), xP , yP);
+    this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP, x + xP, y - (yP / 2), y - (yP / 2) + yP);
+    this.paddles[1] = paddle_new(width - x, y - (yP / 2), xP, yP, width - x, y - (yP / 2), y + (yP / 2));
+
+    /*
+    this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP, x + xP, x + xP, x + xP + );
+    this.paddles[1] = paddle_new(width - x, height - y - (yP / 2), xP , yP, width - x, , + yP);
+    */
 
     this.ball = ball_new(x + 10, b - (bZ / 2), xZ, bZ);
     
@@ -44,10 +49,9 @@ void board_move_ball(Board* board, int currentTime, int* lastTime, int* smer) {
     // vsakih 10 ms se premakne en frame desno
 
     if (currentTime > *lastTime + 10) {
-        if (board->ball.x > (board->paddles[1].x - (board->width)/100 - 4 - 20)) {
-            // printf("Zadel smo desni paddle, zamenji vrednost tm kamor je shranjen smer na -1\n");
+        if (board->ball.x + board->ball.width > (board->paddles[1].curXpos)) {
             *smer = -1;
-        } else if (board->ball.x < board->paddles[0].x + board->paddles[0].width) {
+        } else if (board->ball.x < board->paddles[0].curXpos) {
             *smer = 1;
         }
 

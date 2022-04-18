@@ -62,11 +62,21 @@ void _window_process_events(Window* this, Board* board) {
                     case SDL_SCANCODE_S:
                         _window_key_click(this, board, event, 1);
                         break;
+                    case SDL_SCANCODE_A:
+                        // _window_key_click(this, board, event, 2);
+                        break;
+                    case SDL_SCANCODE_D:
+                        // _window_key_click(this, board, event, 3);
+                        break;
                     case SDL_SCANCODE_UP:
                         _window_key_click(this, board, event, 2);
                         break;
                     case SDL_SCANCODE_DOWN:
                         _window_key_click(this, board, event, 3);
+                        break;
+                    case SDL_SCANCODE_LEFT:
+                        break;
+                    case SDL_SCANCODE_RIGHT:
                         break;
                     default:
                         break;
