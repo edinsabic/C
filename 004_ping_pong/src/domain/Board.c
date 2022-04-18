@@ -26,12 +26,7 @@ Board board_new(int width, int height) {
     int yP = height / 5; // sirina paddla
 
     this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP, x + xP, y - (yP / 2), y - (yP / 2) + yP);
-    this.paddles[1] = paddle_new(width - x, y - (yP / 2), xP, yP, width - x, y - (yP / 2), y + (yP / 2));
-
-    /*
-    this.paddles[0] = paddle_new(x, y - (yP / 2), xP, yP, x + xP, x + xP, x + xP + );
-    this.paddles[1] = paddle_new(width - x, height - y - (yP / 2), xP , yP, width - x, , + yP);
-    */
+    this.paddles[1] = paddle_new(width - x, y - (yP / 2), xP, yP, width - x, y - (yP / 2), y - (yP / 2) + yP);
 
     this.ball = ball_new(x + 10, b - (bZ / 2), xZ, bZ);
     
@@ -40,19 +35,55 @@ Board board_new(int width, int height) {
 
 void board_move_paddle(Board* board, int direction) {
     // '/' določi kateri paddle se bo premaknil (L/R), '%' pa kam, gor/dol (-/+)
-    if (direction < 4) {
+    if (direction < 4) { // y
         board->paddles[direction / 2].y += (((direction % 2 == 0) ? -1 : 1) * 10);
+        board->paddles[direction / 2].curYbot += (((direction % 2 == 0) ? -1 : 1) * 10);
+        board->paddles[direction / 2].curYtop += (((direction % 2 == 0) ? -1 : 1) * 10);
+    } else { // x
+        board->paddles[direction / 6].x += (((direction % 2 == 0) ? -1 : 1) * 10);
+        board->paddles[direction / 6].curXpos += (((direction % 2 == 0) ? -1 : 1) * 10);
     }
-}
+
+    /*
+    if (direction == 0) {
+        board->paddles[0].y -= 10;
+    } else if (direction == 1) {
+        board->paddles[0].y += 10;
+    } else if (direction == 2) {
+        board->paddles[1].y += 10;
+    } else if (direction == 3) {
+        board->paddles[1].y -= 10;
+    } else if (direction == 4) {
+        board->paddles[0].x -= 10;
+        board->paddles[0].curXpos -= 10;
+    } else if (direction == 5) {
+        board->paddles[0].x += 10;
+        board->paddles[0].curXpos += 10;
+    } else if (direction == 6) {
+        board->paddles[1].x -= 10;
+        board->paddles[1].curXpos -= 10;
+    } else if (direction == 7) {
+        board->paddles[1].x += 10;
+        board->paddles[1].curXpos += 10;
+    }
+    */
+}   
 
 void board_move_ball(Board* board, int currentTime, int* lastTime, int* smer) {
     // vsakih 10 ms se premakne en frame desno
 
     if (currentTime > *lastTime + 10) {
         if (board->ball.x + board->ball.width > (board->paddles[1].curXpos)) {
-            *smer = -1;
+            if (board->ball.y < board->paddles[1].curYbot && 
+                board->ball.y + board->ball.height > board->paddles[1].curYtop) {
+                *smer = -1;
+            }
+            
         } else if (board->ball.x < board->paddles[0].curXpos) {
-            *smer = 1;
+            if (board->ball.y < board->paddles[0].curYbot && 
+                board->ball.y + board->ball.height > board->paddles[0].curYtop) {
+                *smer = 1;
+            }
         }
 
         board->ball.x = board->ball.x + (*smer * 3);

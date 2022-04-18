@@ -62,21 +62,23 @@ void _window_process_events(Window* this, Board* board) {
                     case SDL_SCANCODE_S:
                         _window_key_click(this, board, event, 1);
                         break;
-                    case SDL_SCANCODE_A:
-                        // _window_key_click(this, board, event, 2);
-                        break;
-                    case SDL_SCANCODE_D:
-                        // _window_key_click(this, board, event, 3);
-                        break;
                     case SDL_SCANCODE_UP:
                         _window_key_click(this, board, event, 2);
                         break;
                     case SDL_SCANCODE_DOWN:
                         _window_key_click(this, board, event, 3);
                         break;
+                    case SDL_SCANCODE_A:
+                        _window_key_click(this, board, event, 4);
+                        break;
+                    case SDL_SCANCODE_D:
+                        _window_key_click(this, board, event, 5);
+                        break;
                     case SDL_SCANCODE_LEFT:
+                        _window_key_click(this, board, event, 6);
                         break;
                     case SDL_SCANCODE_RIGHT:
+                        _window_key_click(this, board, event, 7);
                         break;
                     default:
                         break;
@@ -100,6 +102,7 @@ void _window_draw(Window* this, Board* board) {
     Color* c = this->color_background;
     SDL_SetRenderDrawColor(this->renderer, c->r, c->g, c->b, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(this->renderer); // pobrise celotn zaslon
+
 
     // na podlagi boarda narisi (for zanke, tokni, ...)
 
@@ -145,6 +148,9 @@ void _window_draw(Window* this, Board* board) {
     SDL_RenderDrawRect(this->renderer, &p1);
     SDL_RenderDrawRect(this->renderer, &p2);
     SDL_RenderDrawRect(this->renderer, &b);
+
+    // Tale pika je za debugganje
+    // SDL_RenderDrawPoint(this->renderer, board->paddles[1].curXpos, board->paddles[1].curYtop);
 
     SDL_RenderPresent(this->renderer);
 }
